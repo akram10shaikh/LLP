@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - Outdoor Signage</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f8f8f8;
+		}
+		/* Scrolling animation for client logos */
+		@keyframes scrollLogos {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+		/* Container for floating action buttons (WhatsApp, Chat) */
+		.floating-btns {
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			z-index: 10;
+		}
+		/* Individual floating button styles */
+		.floating-btns a {
+			display: flex;
+			width: auto;
+			height: auto;
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+			align-items: center;
+			justify-content: center;
+			transition: opacity 0.2s;
+		}
+		/* Hover effect for floating buttons */
+		.floating-btns a:hover {
+			opacity: 0.8;
+			box-shadow: none;
+		}
+		/* Image sizing inside floating buttons */
+		.floating-btns img {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+		}
+		/* Service card hover effects */
+		.service-card {
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+		.service-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(245, 124, 31, 0.35);
+		}
+		/* Image popup effect on hover */
+		.service-img-container:hover .service-img {
+			transform: scale(1.15);
+		}
+		/* Arrow icon rotates on hover */
+		.service-card .arrow-btn svg {
+			transition: transform 0.3s ease;
+		}
+		.service-card:hover .arrow-btn svg {
+			transform: rotate(75deg);
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- Floating action buttons container -->
+	<div class="floating-btns">
+		<!-- WhatsApp floating button -->
+		<a href="https://wa.me/971559955339" target="_blank">
+			<img src="/static/images/whatsapp.png" alt="WhatsApp">
+		</a>
+		<!-- Chat floating button -->
+		<a href="#">
+			<img src="/static/images/chat.png" alt="Chat">
+		</a>
+	</div>
+
+	<!-- Page Header -->
+	<section style="background: url('/static/images/servicebg.png') center center/cover no-repeat; background-attachment: fixed; padding: 8rem 2rem 6rem 2rem; position: relative;">
+		<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.5);"></div>
+		<div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+			<h1 style="font-size: 4rem; font-weight: 700; color: #111; margin: 0 0 1.5rem 0;">Services</h1>
+			<!-- Breadcrumb -->
+			<div style="display: inline-flex; align-items: center; gap: 1rem; border: 2px solid #f57c1f; border-radius: 25px; padding: 0.6rem 1.5rem;">
+				<a href="/" style="color: #f57c1f; text-decoration: none; font-weight: 500;">Home</a>
+				<span style="color: #f57c1f; font-weight: 300;">/</span>
+				<a href="/services/" style="color: #f57c1f; text-decoration: none; font-weight: 500;">Services</a>
+				<span style="color: #f57c1f; font-weight: 300;">/</span>
+				<span style="color: #f57c1f; font-weight: 500;">Outdoor Signage</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Service Details Section -->
+	<section style="background: #fff; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Service Overview -->
+			<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem;">
+				<!-- Left: Content -->
+				<div>
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Outdoor Signage</h2>
+					<h3 style="font-size: 1.8rem; font-weight: 600; color: #111; margin: 0 0 1.5rem 0;">Essential Outdoor Signage for Every Business</h3>
+					<p style="color: #666; font-size: 1rem; line-height: 1.8; margin: 0 0 1.5rem 0;">Outdoor signage plays a crucial role in drawing attention, guiding customers, and building brand visibility. From storefront signs to directional boards, these signs are often the first impression your business makes—and they need to be clear, professional, and durable.</p>
+					<p style="color: #666; font-size: 1rem; line-height: 1.8; margin: 0 0 1.5rem 0;">Whether you're looking for weather-resistant materials like aluminum, ACP, or UV-protected vinyl, we craft custom outdoor signs tailored to your space and goals. These signs do more than advertise – they help customers find you, understand your services, and trust your brand.</p>
+					<p style="color: #666; font-size: 1rem; line-height: 1.8; margin: 0 0 1.5rem 0;">From bold fascia signs to informative wayfinding solutions, outdoor signage is an essential tool to make your presence known and your message seen.</p>
+				</div>
+				<!-- Right: Image -->
+				<div style="display: flex; align-items: center; justify-content: center;">
+					<img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=500&h=400&fit=crop" alt="Outdoor Signage" style="width: 100%; border-radius: 16px; object-fit: cover;">
+				</div>
+			</div>
+
+			<!-- Related Projects Section -->
+			<div style="background: #f5f5f5; padding: 4rem 2rem; margin-top: 4rem; margin-left: -2rem; margin-right: -2rem;">
+				<div style="max-width: 1200px; margin: 0 auto;">
+					<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem;">
+						<div>
+							<p style="color: #f57c1f; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.5rem 0; letter-spacing: 0.5px;">Related Projects</p>
+							<h3 style="font-size: 2.5rem; font-weight: 700; color: #111; margin: 0;">Explore other related projects</h3>
+						</div>
+						<a href="/projects/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap;">
+							View All Works
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					
+					<!-- Related Projects Grid -->
+					<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+						<!-- Project Card 1 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+
+						<!-- Project Card 2 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+
+						<!-- Project Card 3 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+
+						<!-- Project Card 4 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+
+						<!-- Project Card 5 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+
+						<!-- Project Card 6 -->
+						<div style="background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: transform 0.3s ease; cursor: pointer;">
+							<div style="width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden;">
+								<img src="/static/images/Toyota.jpg" alt="Toyota Dubai" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div style="padding: 1rem;">
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Toyota</h4>
+								<p style="color: #999; font-size: 0.85rem; margin: 0;">Dubai</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Our Clients Section -->
+			<section style="background: #ffffff; padding: 4rem 2rem; margin-top: 4rem; margin-left: -2rem; margin-right: -2rem; overflow: hidden;">
+				<div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+					<h3 style="font-size: 2rem; font-weight: 700; color: #111; margin: 0 0 3rem 0;">Our Trusted Clients</h3>
+					
+					<!-- Scrolling Logos Container -->
+					<div style="position: relative; width: 100%; overflow: hidden;">
+						<div class="clients-scroll" style="display: flex; gap: 4rem; animation: scrollLogos 20s linear infinite;">
+							<!-- Logo 1: Wendy's -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 2: Huawei -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 3: Keong Hong -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 180px;">
+								<div style="display: flex; align-items: center; gap: 0.5rem;">
+									<div style="width: 45px; height: 45px; background: linear-gradient(135deg, #c41e3a, #e74c3c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;">K</div>
+									<div style="text-align: left;">
+										<div style="font-size: 0.75rem; font-weight: 600; color: #333; letter-spacing: 0.5px;">KEONG HONG HOLDINGS LIMITED</div>
+										<div style="font-size: 0.6rem; color: #666;">強楓控股有限公司</div>
+									</div>
+								</div>
+							</div>
+							<!-- Logo 4: Huawei (repeat) -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 5: Wendy's (repeat) -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 6: Huawei (repeat) -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 7: Wendy's (repeat) -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+							</div>
+							
+							<!-- Duplicate set for seamless loop -->
+							<!-- Logo 1: Wendy's -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 2: Huawei -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+							</div>
+							<!-- Logo 3: Keong Hong -->
+							<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 180px;">
+								<div style="display: flex; align-items: center; gap: 0.5rem;">
+									<div style="width: 45px; height: 45px; background: linear-gradient(135deg, #c41e3a, #e74c3c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;">K</div>
+									<div style="text-align: left;">
+										<div style="font-size: 0.75rem; font-weight: 600; color: #333; letter-spacing: 0.5px;">KEONG HONG HOLDINGS LIMITED</div>
+										<div style="font-size: 0.6rem; color: #666;">強楓控股有限公司</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- GET STARTED TODAY SECTION -->
+		<div style="background: #ffffff; padding: 4rem 2rem; margin-top: 4rem; margin-left: -2rem; margin-right: -2rem;">
+			<div style="max-width: 1000px; margin: 0 auto;">
+				<div style="background: #fff; border-radius: 0; padding: 2.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;">
+						<!-- Left Content -->
+						<div>
+							<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 1.2rem 0; line-height: 1.2;">Get Started Today</h2>
+							<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Elevate your brand with high-quality signage solutions tailored to your needs. Contact us now for a consultation and let's bring your vision to life!</p>
+							<a href="/contact/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.8rem 1.6rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease;">
+								Get A Quote
+								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+									<path d="M7 17L17 7M17 7H7M17 7V17"/>
+								</svg>
+							</a>
+						</div>
+						<!-- Right Image -->
+						<div>
+							<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop" alt="Store Front" style="width: 100%; height: auto;">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- OTHER SERVICES SECTION -->
+	<section style="background: #f5f5f5; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Header -->
+			<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem;">
+				<div>
+					<p style="color: #f57c1f; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.5rem 0; letter-spacing: 0.5px;">Other Services</p>
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;">Explore our related<br>services</h2>
+				</div>
+				<a href="/services/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.7rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; white-space: nowrap;">
+					View All Services
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+						<path d="M7 17L17 7M17 7H7M17 7V17"/>
+					</svg>
+				</a>
+			</div>
+			
+			<!-- Services Grid -->
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+				
+				<!-- Service 1: Indoor Signage -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">Indoor Signage</h3>
+						<a href="/services/indoor-signage/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">Striking indoor signage that grabs attention and leaves a lasting impression.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=300&fit=crop" alt="Indoor Signage" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+				<!-- Service 2: Digital Signage -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">Digital Signage</h3>
+						<a href="/services/digital-signage/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">Striking digital signage that captures attention and delivers lasting impact.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=300&fit=crop" alt="Digital Signage" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+				<!-- Service 3: Large Format Printing -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">Large Format Printing</h3>
+						<a href="/services/large-format-printing/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">High-quality large format printing that makes your visuals bold and unforgettable.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=400&h=300&fit=crop" alt="Large Format Printing" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+				<!-- Service 4: LED Displays -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">LED Displays</h3>
+						<a href="/services/led-displays/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">Striking LED displays that draw attention and create a lasting impact.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=300&fit=crop" alt="LED Displays" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+				<!-- Service 5: Vehicle Graphics -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">Vehicle Graphics</h3>
+						<a href="/services/vehicle-graphics/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">Bold vehicle graphics that turn every drive into a powerful brand statement.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&h=300&fit=crop" alt="Vehicle Graphics" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+				<!-- Service 6: Vinyl Stickers -->
+				<div style="background: #fff; border-radius: 20px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0;">Vinyl Stickers</h3>
+						<a href="/services/vinyl-stickers/" style="width: 35px; height: 35px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.3s ease;">
+							<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0 0 1rem 0;">Custom vinyl stickers and decals for windows, walls, and promotional materials.</p>
+					<div style="height: 150px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Vinyl Stickers" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+
+	<!-- JavaScript for service card hover effects -->
+	<script>
+		// Service card image popup and arrow rotation
+		document.querySelectorAll('.service-card').forEach(card => {
+			const img = card.querySelector('.service-img');
+			const arrowSvg = card.querySelector('.arrow-btn svg');
+			
+			card.addEventListener('mouseenter', () => {
+				// Image popup effect
+				if (img) {
+					img.style.transform = 'scale(1.15)';
+				}
+			});
+			
+			card.addEventListener('mouseleave', () => {
+				// Reset image
+				if (img) {
+					img.style.transform = 'scale(1)';
+				}
+			});
+		});
+	</script>
+</body>
+</html>

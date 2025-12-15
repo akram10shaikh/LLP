@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - Projects</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f8f8f8;
+		}
+		/* Container for floating action buttons (WhatsApp, Chat) */
+		.floating-btns {
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			z-index: 10;
+		}
+		/* Individual floating button styles */
+		.floating-btns a {
+			display: flex;
+			width: auto;
+			height: auto;
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+			align-items: center;
+			justify-content: center;
+			transition: opacity 0.2s;
+		}
+		/* Hover effect for floating buttons */
+		.floating-btns a:hover {
+			opacity: 0.8;
+			box-shadow: none;
+		}
+		/* Image sizing inside floating buttons */
+		.floating-btns img {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+		}
+		/* Project card styles */
+		.project-card {
+			background: #fff;
+			border-radius: 12px;
+			overflow: hidden;
+			box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			cursor: pointer;
+		}
+		.project-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(245, 124, 31, 0.35);
+		}
+		.project-card-image {
+			width: 100%;
+			aspect-ratio: 16/9;
+			overflow: hidden;
+		}
+		.project-card-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.4s ease;
+		}
+		.project-card:hover .project-card-image img {
+			transform: scale(1.08);
+		}
+		.project-card-content {
+			padding: 1rem;
+		}
+		.project-card-title {
+			font-size: 1rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 0.3rem 0;
+		}
+		.project-card-location {
+			color: #999;
+			font-size: 0.85rem;
+			margin: 0;
+		}
+		/* View more button */
+		.view-more-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			background: #f57c1f;
+			color: #fff;
+			padding: 0.8rem 2rem;
+			border-radius: 25px;
+			text-decoration: none;
+			font-weight: 600;
+			font-size: 0.95rem;
+			transition: all 0.3s ease;
+			margin-top: 2rem;
+			box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);
+		}
+		.view-more-btn:hover {
+			background: #e06b10;
+			transform: translateY(-4px) scale(1.08);
+			box-shadow: 0 8px 30px rgba(245, 124, 31, 0.7);
+		}
+		.view-more-btn svg {
+			transition: transform 0.3s ease;
+		}
+
+		/* Mobile Responsive Styles */
+		@media (max-width: 1024px) {
+			.floating-btns {
+				right: 25px;
+			}
+			.floating-btns img {
+				width: 45px;
+				height: 45px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			/* Page Header Responsive */
+			section[style*="background: url"] {
+				padding: 5rem 1.5rem 4rem 1.5rem !important;
+			}
+
+			section[style*="background: url"] h1 {
+				font-size: 2.5rem !important;
+			}
+
+			section[style*="background: url"] div > div > div {
+				padding: 0.4rem 1rem !important;
+			}
+
+			/* Projects Grid - 2 columns on tablet */
+			div[style*="grid-template-columns: repeat(3, 1fr)"] {
+				grid-template-columns: repeat(2, 1fr) !important;
+				gap: 1.2rem !important;
+			}
+
+			.project-card-title {
+				font-size: 0.95rem !important;
+			}
+
+			.project-card-location {
+				font-size: 0.8rem !important;
+			}
+
+			.floating-btns {
+				right: 20px;
+				gap: 15px;
+			}
+
+			.floating-btns img {
+				width: 40px;
+				height: 40px;
+			}
+
+			.view-more-btn {
+				padding: 0.7rem 1.5rem !important;
+				font-size: 0.9rem !important;
+			}
+		}
+
+		@media (max-width: 480px) {
+			/* Page Header Extra Small */
+			section[style*="background: url"] {
+				padding: 3.5rem 1rem 3rem 1rem !important;
+			}
+
+			section[style*="background: url"] h1 {
+				font-size: 1.8rem !important;
+				margin-bottom: 1rem !important;
+			}
+
+			section[style*="background: url"] div > div > div {
+				padding: 0.35rem 0.8rem !important;
+				font-size: 0.85rem !important;
+			}
+
+			/* Projects Grid - 1 column on mobile */
+			div[style*="grid-template-columns: repeat(3, 1fr)"] {
+				grid-template-columns: 1fr !important;
+				gap: 1rem !important;
+			}
+
+			.project-card {
+				border-radius: 12px !important;
+			}
+
+			.project-card-title {
+				font-size: 0.9rem !important;
+			}
+
+			.project-card-location {
+				font-size: 0.75rem !important;
+			}
+
+			.project-card-content {
+				padding: 0.8rem !important;
+			}
+
+			.floating-btns {
+				right: 15px;
+				gap: 12px;
+			}
+
+			.floating-btns img {
+				width: 35px;
+				height: 35px;
+			}
+
+			/* Section Padding */
+			section[style*="background: #f8f8f8; padding"] {
+				padding: 2rem 1rem 2.5rem 1rem !important;
+			}
+
+			section[style*="background: #f8f8f8; padding"] > div {
+				padding: 0 !important;
+			}
+
+			.view-more-btn {
+				display: block !important;
+				text-align: center;
+				padding: 0.6rem 1.2rem !important;
+				font-size: 0.85rem !important;
+				width: 100%;
+				max-width: 300px;
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- Floating action buttons container -->
+	<div class="floating-btns">
+		<!-- WhatsApp floating button -->
+		<a href="https://wa.me/971559955339" target="_blank">
+			<img src="/static/images/whatsapp.png" alt="WhatsApp">
+		</a>
+		<!-- Chat floating button -->
+		<a href="#">
+			<img src="/static/images/chat.png" alt="Chat">
+		</a>
+	</div>
+
+	<!-- Page Header -->
+	<section style="background: url('/static/images/servicebg.png') center center/cover no-repeat; background-attachment: fixed; padding: 8rem 2rem 6rem 2rem; position: relative;">
+		<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.5);"></div>
+		<div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+			<h1 style="font-size: 4rem; font-weight: 700; color: #111; margin: 0 0 1.5rem 0;">Projects</h1>
+			<!-- Breadcrumb -->
+			<div style="display: inline-flex; align-items: center; gap: 1rem; border: 2px solid #f57c1f; border-radius: 25px; padding: 0.6rem 1.5rem;">
+				<a href="/" style="color: #f57c1f; text-decoration: none; font-weight: 500;">Home</a>
+				<span style="color: #f57c1f; font-weight: 300;">/</span>
+				<span style="color: #f57c1f; font-weight: 500;">Projects</span>
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section style="background: #fff; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Header -->
+			<div style="margin-bottom: 3rem; text-align: center;">
+				<div style="margin-bottom: 2rem;">
+					<p style="color: #f57c1f; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.5rem 0; letter-spacing: 0.5px;"></p>
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;"></h2>
+				</div>
+				<!-- Category Filter Buttons -->
+				<div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
+					<button style="background: #f57c1f; color: #fff; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('all')">All</button>
+					<button style="background: #f5f5f5; color: #111; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('indoor')">Indoor Signage</button>
+					<button style="background: #f5f5f5; color: #111; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('outdoor')">Outdoor Signage</button>
+					<button style="background: #f5f5f5; color: #111; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('vehicle')">Vehicle Graphics</button>
+					<button style="background: #f5f5f5; color: #111; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('led')">LED Displays</button>
+					<button style="background: #f5f5f5; color: #111; padding: 0.6rem 1.5rem; border-radius: 25px; border: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;" onclick="filterProjects('digital')">Digital Signage</button>
+				</div>
+			</div>
+
+			<!-- Projects Grid -->
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" id="projectsGrid">
+				
+				<!-- Project Card 1: Toyota - Indoor -->
+				<a href="/project/toyota/" style="text-decoration: none; color: inherit;">
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="/static/images/Toyota.jpg" alt="Toyota">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Toyota</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+				</a>
+
+				<!-- Project Card 2: Chicory - Outdoor -->
+				<div class="project-card" data-category="outdoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=300&fit=crop" alt="Chicory">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Chicory</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 3: Carla's - LED -->
+				<div class="project-card" data-category="led">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=300&fit=crop" alt="Carla's">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Carla's</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 4: Nayomi - Indoor -->
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1578926314433-c6e7ad7d3136?w=500&h=300&fit=crop" alt="Nayomi">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Nayomi</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 5: Nayomi (Duplicate) - Indoor -->
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&h=300&fit=crop" alt="Nayomi">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Nayomi</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 6: ALBO - Indoor -->
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=300&fit=crop" alt="ALBO">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">ALBO</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 7: Mashreq - Indoor -->
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="/static/images/Toyota.jpg" alt="Mashreq">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Mashreq</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 8: Kapsarc - Outdoor -->
+				<div class="project-card" data-category="outdoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=300&fit=crop" alt="Kapsarc">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Kapsarc</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 9: Radisson Blu - LED -->
+				<div class="project-card" data-category="led">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=300&fit=crop" alt="Radisson Blu">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Radisson Blu</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 10: Toyota - Indoor -->
+				<div class="project-card" data-category="indoor">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1578926314433-c6e7ad7d3136?w=500&h=300&fit=crop" alt="Toyota">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Toyota</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 11: Carla's - LED -->
+				<div class="project-card" data-category="led">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&h=300&fit=crop" alt="Carla's">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Carla's</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+				<!-- Project Card 12: Carla's (Duplicate) - LED -->
+				<div class="project-card" data-category="led">
+					<div class="project-card-image">
+						<img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=300&fit=crop" alt="Carla's">
+					</div>
+					<div class="project-card-content">
+						<h3 class="project-card-title">Carla's</h3>
+						<p class="project-card-location">Dubai</p>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- View All Projects Button -->
+			<div style="text-align: center;">
+				<a href="/projects/" class="view-more-btn">
+					View All Projects
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+						<line x1="12" y1="19" x2="12" y2="5"></line>
+						<polyline points="5 12 12 5 19 12"></polyline>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+
+	<!-- JavaScript for filter functionality -->
+	<script>
+		function filterProjects(category) {
+			// Update button styles
+			const buttons = document.querySelectorAll('button[onclick^="filterProjects"]');
+			buttons.forEach(btn => {
+				btn.style.background = '#f5f5f5';
+				btn.style.color = '#111';
+			});
+			
+			// Highlight active button
+			event.target.style.background = '#f57c1f';
+			event.target.style.color = '#fff';
+			
+			// Filter cards based on category
+			const cards = document.querySelectorAll('.project-card');
+			cards.forEach(card => {
+				const cardCategory = card.getAttribute('data-category');
+				if (category === 'all') {
+					card.style.display = 'block';
+				} else if (category === 'indoor' && cardCategory === 'indoor') {
+					card.style.display = 'block';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		}
+
+		// Set initial active button
+		window.addEventListener('load', function() {
+			const buttons = document.querySelectorAll('button[onclick^="filterProjects"]');
+			if (buttons.length > 0) {
+				buttons[0].style.background = '#f57c1f';
+				buttons[0].style.color = '#fff';
+			}
+		});
+	</script>
+</body>
+</html>

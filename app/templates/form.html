@@ -1,0 +1,406 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>How to Apply of this Position</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background-color: #f8f8f8;
+			padding: 40px 20px;
+			line-height: 1.6;
+		}
+
+		.form-container {
+			max-width: 600px;
+			margin: 0 auto;
+			background-color: white;
+			padding: 40px;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		h1 {
+			font-size: 2rem;
+			color: #111;
+			margin-bottom: 40px;
+			font-weight: 600;
+		}
+
+		.form-group {
+			margin-bottom: 30px;
+		}
+
+		label {
+			display: block;
+			font-size: 1rem;
+			color: #111;
+			margin-bottom: 10px;
+			font-weight: 500;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"],
+		textarea {
+			width: 100%;
+			padding: 12px 0;
+			border: none;
+			border-bottom: 1px solid #ccc;
+			font-size: 1rem;
+			color: #333;
+			font-family: inherit;
+			transition: border-color 0.3s ease;
+		}
+
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="tel"]:focus,
+		textarea:focus {
+			outline: none;
+			border-bottom-color: #f57c1f;
+		}
+
+		textarea {
+			resize: vertical;
+			min-height: 120px;
+			padding: 12px 0;
+		}
+
+		.file-input-wrapper {
+			position: relative;
+			display: inline-block;
+			margin-bottom: 30px;
+		}
+
+		.file-input-label {
+			display: inline-block;
+			padding: 10px 20px;
+			background-color: #666;
+			color: white;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 1rem;
+			font-weight: 500;
+			transition: background-color 0.3s ease;
+		}
+
+		.file-input-label:hover {
+			background-color: #555;
+		}
+
+		input[type="file"] {
+			display: none;
+		}
+
+		.file-name {
+			display: inline-block;
+			margin-left: 10px;
+			color: #666;
+			font-size: 1rem;
+		}
+
+		.drop-zone {
+			display: none;
+			border: 2px dashed #4f46e5;
+			border-radius: 8px;
+			padding: 60px 20px;
+			text-align: center;
+			background-color: #f9f9ff;
+			margin: 30px 0;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.drop-zone.show {
+			display: block;
+		}
+
+		.drop-zone.dragover {
+			background-color: #f0f0ff;
+			border-color: #4f46e5;
+			box-shadow: 0 0 10px rgba(79, 70, 229, 0.1);
+		}
+
+		.drop-zone-icon {
+			width: 60px;
+			height: 60px;
+			background: linear-gradient(135deg, #4f46e5, #7c3aed);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 20px;
+		}
+
+		.drop-zone-icon svg {
+			width: 36px;
+			height: 36px;
+			stroke: white;
+			stroke-width: 2;
+		}
+
+		.drop-zone-text {
+			color: #999;
+			font-size: 1.1rem;
+			margin-bottom: 10px;
+		}
+
+		.drop-zone-text .browse {
+			color: #4f46e5;
+			text-decoration: none;
+			cursor: pointer;
+			font-weight: 600;
+		}
+
+		.drop-zone-text .browse:hover {
+			text-decoration: underline;
+		}
+
+		.submit-btn {
+			background-color: #f57c1f;
+			color: white;
+			padding: 12px 30px;
+			border: none;
+			border-radius: 4px;
+			font-size: 1rem;
+			font-weight: 600;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			margin-top: 20px;
+			box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);
+		}
+
+		.submit-btn:hover {
+			background-color: #e86e1a;
+			transform: translateY(-4px) scale(1.08);
+			box-shadow: 0 8px 30px rgba(245, 124, 31, 0.7);
+		}
+
+		.submit-btn:active {
+			transform: scale(0.98);
+		}
+
+		.error-message {
+			color: #e74c3c;
+			font-size: 0.95rem;
+			margin-top: 8px;
+			display: none;
+		}
+
+		.error-message.show {
+			display: block;
+		}
+
+		input.error,
+		textarea.error {
+			border-bottom-color: #e74c3c;
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.form-container {
+				padding: 30px 20px;
+			}
+
+			h1 {
+				font-size: 1.5rem;
+				margin-bottom: 30px;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+				padding: 10px 0;
+				font-size: 1rem;
+			}
+
+			.submit-btn {
+				width: 100%;
+				padding: 15px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="form-container">
+		<h1>How to Apply of this Position</h1>
+		
+		<form method="POST" id="applicationForm">
+			{% csrf_token %}
+
+			<!-- Full Name -->
+			<div class="form-group">
+				<label for="fullName">Full Name</label>
+				<input type="text" id="fullName" name="fullName">
+				<div class="error-message" id="fullNameError">Please fill out this field.</div>
+			</div>
+
+			<!-- Email -->
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" id="email" name="email">
+				<div class="error-message" id="emailError">Please fill out this field.</div>
+			</div>
+
+			<!-- Phone Number -->
+			<div class="form-group">
+				<label for="phone">Phone Number</label>
+				<input type="tel" id="phone" name="phone">
+				<div class="error-message" id="phoneError">Please fill out this field.</div>
+			</div>
+
+			<!-- Cover Letter -->
+			<div class="form-group">
+				<label for="coverLetter">Cover letter</label>
+				<textarea id="coverLetter" name="coverLetter"></textarea>
+				<div class="error-message" id="coverLetterError">Please fill out this field.</div>
+			</div>
+
+			<!-- File Upload -->
+			<div class="file-input-wrapper">
+				<label for="fileUpload" class="file-input-label">Choose file</label>
+				<input type="file" id="fileUpload" name="fileUpload">
+				<span class="file-name" id="fileName">No File Choose</span>
+			</div>
+
+			<!-- Drag and Drop Zone -->
+			<div class="drop-zone" id="dropZone">
+				<div class="drop-zone-icon">
+					<svg viewBox="0 0 24 24" fill="none">
+						<path d="M12 3v14m0 0l-4-4m4 4l4-4M3 18h18" stroke="currentColor"/>
+					</svg>
+				</div>
+				<div class="drop-zone-text">
+					Drag and drop here
+					<br>or
+					<br><span class="browse">browse</span>
+				</div>
+			</div>
+
+			<!-- Submit Button -->
+			<button type="submit" class="submit-btn">Submit</button>
+		</form>
+	</div>
+
+	<script>
+		// File input and drop zone elements
+		const fileInput = document.getElementById('fileUpload');
+		const fileName = document.getElementById('fileName');
+		const dropZone = document.getElementById('dropZone');
+		const fileInputLabel = document.querySelector('.file-input-label');
+		const fileInputWrapper = document.querySelector('.file-input-wrapper');
+
+		// Show drop zone when clicking "Choose file"
+		fileInputLabel.addEventListener('click', (e) => {
+			e.preventDefault();
+			dropZone.classList.add('show');
+			fileInputWrapper.style.display = 'none';
+		});
+
+		// Browse link in drop zone
+		document.querySelector('.browse').addEventListener('click', () => {
+			fileInput.click();
+		});
+
+		// Handle file selection from file input dialog
+		fileInput.addEventListener('change', function(e) {
+			if (this.files && this.files[0]) {
+				fileName.textContent = this.files[0].name;
+				dropZone.classList.remove('show');
+				fileInputWrapper.style.display = 'block';
+			}
+		});
+
+		// Drag and drop functionality
+		dropZone.addEventListener('dragover', (e) => {
+			e.preventDefault();
+			dropZone.classList.add('dragover');
+		});
+
+		dropZone.addEventListener('dragleave', () => {
+			dropZone.classList.remove('dragover');
+		});
+
+		dropZone.addEventListener('drop', (e) => {
+			e.preventDefault();
+			dropZone.classList.remove('dragover');
+
+			const files = e.dataTransfer.files;
+			if (files && files[0]) {
+				fileInput.files = files;
+				fileName.textContent = files[0].name;
+				dropZone.classList.remove('show');
+				fileInputWrapper.style.display = 'block';
+			}
+		});
+
+		// Form validation (existing code below)
+		const form = document.getElementById('applicationForm');
+		const fullNameInput = document.getElementById('fullName');
+		const emailInput = document.getElementById('email');
+		const phoneInput = document.getElementById('phone');
+		const coverLetterInput = document.getElementById('coverLetter');
+
+		const fullNameError = document.getElementById('fullNameError');
+		const emailError = document.getElementById('emailError');
+		const phoneError = document.getElementById('phoneError');
+		const coverLetterError = document.getElementById('coverLetterError');
+
+		// Real-time validation
+		function validateField(input, errorElement, validator) {
+			const isValid = validator(input.value);
+			if (!isValid) {
+				input.classList.add('error');
+				errorElement.classList.add('show');
+			} else {
+				input.classList.remove('error');
+				errorElement.classList.remove('show');
+			}
+			return isValid;
+		}
+
+		fullNameInput.addEventListener('blur', () => {
+			validateField(fullNameInput, fullNameError, (value) => value.trim() !== '');
+		});
+
+		emailInput.addEventListener('blur', () => {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			validateField(emailInput, emailError, (value) => value.trim() !== '' && emailRegex.test(value));
+		});
+
+		phoneInput.addEventListener('blur', () => {
+			validateField(phoneInput, phoneError, (value) => value.trim() !== '');
+		});
+
+		coverLetterInput.addEventListener('blur', () => {
+			validateField(coverLetterInput, coverLetterError, (value) => value.trim() !== '');
+		});
+
+		// Form submit validation
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			const isFullNameValid = validateField(fullNameInput, fullNameError, (value) => value.trim() !== '');
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			const isEmailValid = validateField(emailInput, emailError, (value) => value.trim() !== '' && emailRegex.test(value));
+			const isPhoneValid = validateField(phoneInput, phoneError, (value) => value.trim() !== '');
+			const isCoverLetterValid = validateField(coverLetterInput, coverLetterError, (value) => value.trim() !== '');
+
+			if (isFullNameValid && isEmailValid && isPhoneValid && isCoverLetterValid) {
+				// Form is valid, submit it
+				form.submit();
+			}
+		});
+	</script>
+</body>
+</html>

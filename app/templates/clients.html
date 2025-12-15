@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - Clients</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f8f8f8;
+		}
+
+		/* Clients grid */
+		.clients-grid {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr);
+			gap: 1.5rem;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3rem 2rem;
+		}
+
+		.client-card {
+			background: #fff;
+			border-radius: 12px;
+			padding: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 120px;
+			box-shadow: 0 0 20px rgba(245, 124, 31, 0.3);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			cursor: pointer;
+		}
+
+		.client-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 30px rgba(245, 124, 31, 0.6);
+		}
+
+		.client-card img {
+			max-width: 100%;
+			max-height: 100%;
+			object-fit: contain;
+		}
+
+		/* Responsive design */
+		@media (max-width: 1024px) {
+			.clients-grid {
+				grid-template-columns: repeat(4, 1fr);
+			}
+		}
+
+		@media (max-width: 768px) {
+			.clients-grid {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1rem;
+				padding: 2rem 1rem;
+			}
+
+			.client-card {
+				min-height: 120px;
+				padding: 1.5rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.clients-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			/* Page header responsive */
+			section[style*="background: url"] {
+				padding: 3.5rem 1rem 3rem 1rem !important;
+			}
+
+			section[style*="background: url"] h1 {
+				font-size: 1.8rem !important;
+				margin-bottom: 1rem !important;
+			}
+
+			section[style*="background: url"] div > div > div {
+				padding: 0.35rem 0.8rem !important;
+				font-size: 0.85rem !important;
+			}
+
+			/* Floating buttons */
+			div[style*="position: absolute; right: 40px"] {
+				right: 15px !important;
+				gap: 12px !important;
+			}
+
+			div[style*="position: absolute; right: 40px"] img {
+				width: 35px !important;
+				height: 35px !important;
+			}
+		}
+
+		@media (max-width: 768px) {
+			/* Page header responsive */
+			section[style*="background: url"] {
+				padding: 5rem 1.5rem 4rem 1.5rem !important;
+			}
+
+			section[style*="background: url"] h1 {
+				font-size: 2.5rem !important;
+			}
+
+			section[style*="background: url"] div > div > div {
+				padding: 0.4rem 1rem !important;
+			}
+
+			/* Floating buttons */
+			div[style*="position: absolute; right: 40px"] {
+				right: 20px !important;
+				gap: 15px !important;
+			}
+
+			div[style*="position: absolute; right: 40px"] img {
+				width: 40px !important;
+				height: 40px !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- Hero Section -->
+	<section style="background: url('/static/images/servicebg.png') center center/cover no-repeat; background-attachment: fixed; padding: 8rem 2rem 6rem 2rem; position: relative;">
+		<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255, 255, 255, 0.5);"></div>
+		<div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
+			<h1 style="font-size: 4rem; font-weight: 700; color: #111; margin: 0 0 1.5rem 0;">Clients</h1>
+			<!-- Breadcrumb -->
+			<div style="display: inline-flex; align-items: center; gap: 1rem; border: 2px solid #f57c1f; border-radius: 25px; padding: 0.6rem 1.5rem;">
+				<a href="/" style="color: #f57c1f; text-decoration: none; font-weight: 500;">Home</a>
+				<span style="color: #f57c1f; font-weight: 300;">/</span>
+				<span style="color: #f57c1f; font-weight: 500;">Clients</span>
+			</div>
+		</div>
+
+		<!-- Floating action buttons - positioned in hero section -->
+		<div style="position: absolute; right: 40px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 18px; z-index: 20;">
+			<!-- WhatsApp floating button -->
+			<a href="https://wa.me/971559955339" target="_blank">
+				<img src="/static/images/whatsapp.png" alt="WhatsApp" style="width: 50px; height: 50px; object-fit: contain;">
+			</a>
+			<!-- Chat floating button -->
+			<a href="#">
+				<img src="/static/images/chat.png" alt="Chat" style="width: 50px; height: 50px; object-fit: contain;">
+			</a>
+		</div>
+	</section>
+
+	<!-- Clients Grid Section -->
+	<div class="clients-grid">
+		<!-- Client 1 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 2 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 3 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 4 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 5 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 6 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+
+		<!-- Client 7 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 8 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 9 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 10 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 11 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 12 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+
+		<!-- Client 13 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 14 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 15 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 16 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 17 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 18 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+
+		<!-- Client 19 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 20 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 21 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 22 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 23 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+		<!-- Client 24 -->
+		<div class="client-card">
+			<img src="/static/images/adidas.png" alt="Adidas">
+		</div>
+	</div>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+
+</body>
+</html>

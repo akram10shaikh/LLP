@@ -1,0 +1,243 @@
+<!-- TOP ORANGE BAR: Contains business hours and contact info -->
+<div style="background: #f57c1f; color: #fff; font-family: 'Segoe UI', Arial, sans-serif; height: auto; min-height: 45px;">
+	<div style="display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.5rem; gap: 1rem; max-width: 100%;">
+		<!-- LEFT SECTION: Business hours and email -->
+		<div style="display: flex; align-items: center; gap: 2rem;">
+			<!-- Business hours with clock icon -->
+			<span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; white-space: nowrap;">
+				<!-- Clock SVG Icon -->
+				<svg width="18" height="18" viewBox="0 0 24 24" style="flex-shrink: 0;">
+					<circle cx="12" cy="12" r="11" fill="none" stroke="#fff" stroke-width="2"/>
+					<line x1="12" y1="6" x2="12" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+					<line x1="12" y1="12" x2="16" y2="12" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+				</svg>
+				<span>Sat - Thu 9.00 AM to 6.00 PM</span>
+			</span>
+			<!-- Email with envelope icon -->
+			<span style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; white-space: nowrap; position: relative;">
+				<!-- Envelope SVG Icon with Star -->
+				<div style="position: relative; width: 18px; height: 14px; display: flex; align-items: center; justify-content: center;">
+					<svg width="18" height="14" viewBox="0 0 24 20" style="flex-shrink: 0;">
+						<rect x="2" y="3" width="20" height="14" rx="1" fill="none" stroke="#fff" stroke-width="2"/>
+						<path d="M 2 3 L 12 11 L 22 3" stroke="#fff" stroke-width="2" fill="none" stroke-linejoin="round"/>
+					</svg>
+					<!-- Star sparkle -->
+					<svg width="10" height="10" viewBox="0 0 10 10" style="position: absolute; right: -6px; top: -4px; flex-shrink: 0;">
+						<path d="M 5 0 L 6.5 3.5 L 10 4 L 7 6.5 L 7.5 10 L 5 8 L 2.5 10 L 3 6.5 L 0 4 L 3.5 3.5 Z" fill="#fff"/>
+					</svg>
+				</div>
+				<span>maliziasign@gmail.com</span>
+			</span>
+		</div>
+		<!-- RIGHT SECTION: Social media icons -->
+		<div style="display: flex; align-items: center; gap: 1rem; flex-shrink: 0;">
+			<!-- Facebook link -->
+			<a href="#" style="color: #fff; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+					<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+				</svg>
+			</a>
+			<!-- X (Twitter) link -->
+			<a href="#" style="color: #fff; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+					<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+				</svg>
+			</a>
+			<!-- YouTube link -->
+			<a href="#" style="color: #fff; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+					<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+				</svg>
+			</a>
+			<!-- Instagram link -->
+			<a href="#" style="color: #fff; text-decoration: none; font-size: 1.1rem; display: flex; align-items: center; justify-content: center;">
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+					<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+					<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+					<circle cx="17.5" cy="6.5" r="1.5"/>
+				</svg>
+			</a>
+		</div>
+	</div>
+	<!-- Mobile responsive styles for top bar -->
+	<style>
+		@media (max-width: 768px) {
+			div[style*="display: flex; align-items: center; gap: 2rem"] {
+				flex-direction: column;
+				gap: 0.8rem !important;
+			}
+
+			span[style*="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem"] {
+				font-size: 0.75rem !important;
+			}
+
+			div[style*="display: flex; align-items: center; gap: 1rem; flex-shrink: 0"] {
+				gap: 0.8rem !important;
+			}
+		}
+
+		@media (max-width: 480px) {
+			div[style*="display: flex; align-items: center; padding: 0.8rem 1.5rem"] {
+				padding: 0.6rem 1rem !important;
+			}
+
+			span[style*="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem"] {
+				font-size: 0.7rem !important;
+			}
+
+			svg[viewBox*="0 0 24 24"] {
+				width: 14px !important;
+				height: 14px !important;
+			}
+		}
+	</style>
+</div>
+
+<!-- NAVIGATION BAR: Contains logo, menu items, and CTA button -->
+<div style="background: #fff; font-family: 'Segoe UI', Arial, sans-serif; box-shadow: 0 2px 4px rgba(0,0,0,0.04); position: sticky; top: 0; z-index: 100;">
+	<div style="display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.5rem; gap: 1rem; max-width: 100%; flex-wrap: nowrap;">
+		<!-- Logo -->
+		<img src="/static/images/logo.png" alt="Malizia Sign Logo" style="height: 50px; max-width: 100px; flex-shrink: 0;">
+		
+		<!-- Mobile Menu Toggle Button -->
+		<button id="mobile-menu-btn" style="display: none; background: #f57c1f; color: #fff; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1.2rem; z-index: 101; flex-shrink: 0;">☰</button>
+		
+		<!-- Navigation Menu -->
+		<nav id="nav-menu-container" style="flex: 1; display: flex; justify-content: center; margin: 0;">
+			<ul id="nav-menu" style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0; font-size: 1rem; font-weight: 400; white-space: nowrap;">
+				<!-- Home link -->
+				<li style="display: flex;"><a href="/" class="nav-link" data-path="/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Home</a></li>
+				<!-- About Us link -->
+				<li style="display: flex;"><a href="/about/" class="nav-link" data-path="/about/" style="text-decoration: none; color: #222; padding-bottom: 2px;">About</a></li>
+				<!-- Services link -->
+				<li style="display: flex;"><a href="/services/" class="nav-link" data-path="/services/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Services</a></li>
+				<!-- Projects link -->
+				<li style="display: flex;"><a href="/projects/" class="nav-link" data-path="/projects/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Projects</a></li>
+				<!-- Clients link -->
+				<li style="display: flex;"><a href="/clients/" class="nav-link" data-path="/clients/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Clients</a></li>
+				<!-- Blog link -->
+				<li style="display: flex;"><a href="/blog/" class="nav-link" data-path="/blog/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Blogs</a></li>
+				<!-- Careers link -->
+				<li style="display: flex;"><a href="/careers/" class="nav-link" data-path="/careers/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Careers</a></li>
+				<!-- Contact Us link -->
+				<li style="display: flex;"><a href="/contact/" class="nav-link" data-path="/contact/" style="text-decoration: none; color: #222; padding-bottom: 2px;">Contact</a></li>
+			</ul>
+		</nav>
+		
+		<!-- Call-to-action button with phone number -->
+		<a href="tel:+971559955339" style="background: #f57c1f; color: #fff; border-radius: 15px; padding: 0.6rem 1.5rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; flex-shrink: 0;">
+			<!-- Phone icon SVG -->
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="#fff">
+				<path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1v3.49a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.01l-2.2 2.23z"/>
+			</svg>
+			<!-- Phone number -->
+			<span style="display: block;">+971 55 995 5339</span>
+		</a>
+	</div>
+</div>
+
+<!-- JavaScript to highlight active navigation link and handle mobile menu -->
+<style>
+.nav-link {
+	position: relative;
+	padding-bottom: 10px;
+}
+.nav-link.active::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 120%;
+	height: 3px;
+	background: #f57c1f;
+	border-radius: 0 0 50% 50% / 0 0 100% 100%;
+	clip-path: polygon(0% 100%, 3% 0%, 97% 0%, 100% 100%);
+}
+
+@media (max-width: 1024px) {
+	#nav-menu-container {
+		margin-left: 1rem !important;
+	}
+	#nav-menu {
+		gap: 1.5rem !important;
+		font-size: 0.95rem !important;
+	}
+}
+
+@media (max-width: 768px) {
+	#mobile-menu-btn {
+		display: block !important;
+	}
+	
+	#nav-menu-container {
+		display: none !important;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: #fff;
+		box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+		padding: 1rem;
+		margin-left: 0 !important;
+		width: 100%;
+	}
+	
+	#nav-menu-container.active {
+		display: flex !important;
+	}
+	
+	#nav-menu {
+		flex-direction: column !important;
+		gap: 0.5rem !important;
+		font-size: 1rem !important;
+		width: 100%;
+	}
+	
+	#nav-menu li {
+		padding: 0.5rem 0;
+		border-bottom: 1px solid #eee;
+	}
+	
+	#nav-menu li:last-child {
+		border-bottom: none;
+	}
+}
+</style>
+<script>
+(function() {
+	// Mobile menu toggle
+	var mobileMenuBtn = document.getElementById('mobile-menu-btn');
+	var navMenuContainer = document.getElementById('nav-menu-container');
+	
+	if (mobileMenuBtn) {
+		mobileMenuBtn.addEventListener('click', function() {
+			navMenuContainer.classList.toggle('active');
+		});
+		
+		// Close menu when a link is clicked
+		var navLinks = navMenuContainer.querySelectorAll('a');
+		navLinks.forEach(function(link) {
+			link.addEventListener('click', function() {
+				navMenuContainer.classList.remove('active');
+			});
+		});
+	}
+	
+	// Highlight active link
+	var currentPath = window.location.pathname;
+	var navLinks = document.querySelectorAll('.nav-link');
+	
+	navLinks.forEach(function(link) {
+		var linkPath = link.getAttribute('data-path');
+		
+		// Check if current path matches the link path
+		// For home, check if path is exactly "/" or empty
+		if (linkPath === '/' && (currentPath === '/' || currentPath === '')) {
+			link.classList.add('active');
+		} else if (linkPath !== '/' && currentPath.startsWith(linkPath)) {
+			link.classList.add('active');
+		}
+	});
+})();
+</script>

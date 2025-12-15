@@ -1,0 +1,88 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Footer</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+  <!-- Footer Start -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <!-- Logo & Description -->
+      <div class="footer-section logo-section">
+        <img src="{% static 'images/malizia sign logo.png' %}" alt="Malizia Sign" class="footer-logo">
+        <p>Quality signage isn't just about looks—it's about grabbing attention and getting the message across instantly</p>
+        <div class="customer-support">
+          <div class="support-icon">
+            <span>📞</span>
+          </div>
+          <div>
+            <h4>Customer Support</h4>
+            <p>+971 55 995 5339</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="{% url 'outdoor_signage' %}">Outdoor Signage</a></li>
+          <li><a href="{% url 'indoor_signage' %}">Indoor Signage</a></li>
+          <li><a href="{% url 'digital_signage' %}">Digital Signage</a></li>
+          <li><a href="{% url 'led_displays' %}">LED Displays</a></li>
+          <li><a href="{% url 'vehicle_graphics' %}">Vehicle Graphics</a></li>
+          <li><a href="{% url 'vinyl_stickers' %}">Vinyl Stickers</a></li>
+          <li><a href="{% url 'large_format_printing' %}">Large Format Printing</a></li>
+          <li><a href="{% url 'custom_acrylic_branding' %}">Custom Acrylic Branding</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'services' %}">Services</a></li>
+          <li><a href="{% url 'projects' %}">Projects</a></li>
+          <li><a href="{% url 'clients' %}">Clients</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+          <li><a href="{% url 'careers' %}">Careers</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p><strong>Address:</strong><br>Industrial Area 13, Near National Paint,<br>Next to Al Gurg Paints – Sharjah</p>
+        <p><strong>Email:</strong><br>maliziasign@gmail.com</p>
+        <div class="social-icons">
+          <a href="#"><img src="{% static 'images/facebook_icon.png' %}" alt="Facebook"></a>
+          <a href="#"><img src="{% static 'images/Instagram_icon.png' %}" alt="Instagram"></a>
+          <a href="#"><img src="{% static 'images/youtube_icon.png' %}" alt="YouTube"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+        <p>Copyright© 2025 Malizia. All rights reserved</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms Of Service</a> |
+        <a href="#">Go to Top</a>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer End -->
+
+</body>
+</html>

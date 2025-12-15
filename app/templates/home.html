@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - Home</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		/* Rotating animation for Get A Quote button */
+		@keyframes rotate360 {
+			from {
+				transform: translateY(-50%) rotate(0deg);
+			}
+			to {
+				transform: translateY(-50%) rotate(360deg);
+			}
+		}
+		/* Scrolling animation for client logos */
+		@keyframes scrollLogos {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-50%);
+			}
+		}
+
+		/* Hero Image Carousel Animations - Continuous with no gaps */
+		@keyframes slideImage1 {
+			0% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			28% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			38% {
+				transform: translateX(-100%);
+				opacity: 1;
+			}
+			100% {
+				transform: translateX(-100%);
+				opacity: 1;
+			}
+		}
+
+		@keyframes slideImage2 {
+			0% {
+				transform: translateX(100%);
+				opacity: 1;
+			}
+			28% {
+				transform: translateX(100%);
+				opacity: 1;
+			}
+			38% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			61% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			71% {
+				transform: translateX(-100%);
+				opacity: 1;
+			}
+			100% {
+				transform: translateX(-100%);
+				opacity: 1;
+			}
+		}
+
+		@keyframes slideImage3 {
+			0% {
+				transform: translateX(100%);
+				opacity: 1;
+			}
+			61% {
+				transform: translateX(100%);
+				opacity: 1;
+			}
+			71% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+			100% {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+
+		/* Hero Image Container */
+		.hero-image-carousel {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #000;
+		}
+
+		.hero-image-carousel img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.hero-image-carousel img:nth-child(1) {
+			animation: slideImage1 20s ease-in-out infinite;
+			z-index: 5;
+		}
+
+		.hero-image-carousel img:nth-child(2) {
+			animation: slideImage2 20s ease-in-out infinite;
+			z-index: 4;
+		}
+
+		.hero-image-carousel img:nth-child(3) {
+			animation: slideImage3 20s ease-in-out infinite;
+			z-index: 3;
+		}
+		/* Scrolling animation for testimonials - right to left continuous */
+		@keyframes scrollTestimonials {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(-100%);
+			}
+		}
+		.testimonials-track {
+			display: flex;
+			gap: 1.5rem;
+			animation: scrollTestimonials 60s linear infinite;
+			width: max-content;
+			align-items: flex-start;
+		}
+		.testimonials-track:hover {
+			animation-play-state: paused;
+		}
+		.testimonial-card {
+			flex-shrink: 0;
+			width: 340px;
+			height: 300px;
+			background: #fff;
+			border-radius: 20px;
+			padding: 2rem;
+			box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);
+			display: flex;
+			flex-direction: column;
+			overflow: hidden;
+		}
+		.rotating-quote {
+			animation: rotate360 8s linear infinite;
+		}
+		/* Work card hover effect - popup/scale on image hover */
+		.work-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 30px rgba(245, 124, 31, 0.35);
+		}
+		.work-img-container:hover .work-img {
+			transform: scale(1.1);
+		}
+		/* Blog card image hover popup effect */
+		.blog-img-container {
+			overflow: hidden;
+			border-radius: 16px;
+			transition: all 0.3s ease;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.blog-img-container img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+		.blog-card:hover .blog-img-container img {
+			transform: scale(1.15);
+		}
+		/* General body styles */
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #fff;
+		}
+		/* Main background section with hero image */
+		.main-bg {
+			position: relative;
+			width: 100%;
+			height: calc(100vh - 110px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			background: #000;
+		}
+
+		@media (max-width: 768px) {
+			.main-bg {
+				height: calc(100vh - 80px);
+			}
+		}
+
+		@keyframes smoothTransition {
+			0% {
+				background-image: url('/static/images/image.jpg');
+				opacity: 1;
+			}
+			33% {
+				background-image: url('/static/images/image.jpg');
+				opacity: 1;
+			}
+			35% {
+				background-image: url('/static/images/home2.jpg');
+				opacity: 1;
+			}
+			66% {
+				background-image: url('/static/images/home2.jpg');
+				opacity: 1;
+			}
+			68% {
+				background-image: url('/static/images/home3.jpeg');
+				opacity: 1;
+			}
+			100% {
+				background-image: url('/static/images/home3.jpeg');
+				opacity: 1;
+			}
+		}
+
+		.main-bg.touring {
+			animation: none;
+		}
+		/* Container for floating action buttons (WhatsApp, Chat) */
+		.floating-btns {
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			z-index: 15;
+		}
+		/* Individual floating button styles */
+		.floating-btns a {
+			display: flex;
+			width: auto;
+			height: auto;
+			border-radius: 0;
+			background: transparent;
+			box-shadow: none;
+			align-items: center;
+			justify-content: center;
+			transition: opacity 0.2s;
+		}
+		/* Hover effect for floating buttons */
+		.floating-btns a:hover {
+			opacity: 0.8;
+			box-shadow: none;
+		}
+		/* Image sizing inside floating buttons */
+		.floating-btns img {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+		}
+
+		@media (max-width: 768px) {
+			.floating-btns {
+				right: 15px;
+				gap: 12px;
+			}
+
+			.floating-btns img {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.floating-btns {
+				right: 10px;
+				gap: 10px;
+			}
+
+			.floating-btns img {
+				width: 35px;
+				height: 35px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- HERO SECTION: Main background image with floating action buttons -->
+	<div class="main-bg">
+		<!-- Hero Image Carousel -->
+		<div class="hero-image-carousel">
+			<img src="/static/images/image.jpg" alt="Hero Image 1">
+			<img src="/static/images/home2.jpg" alt="Hero Image 2">
+			<img src="/static/images/home3.jpeg" alt="Hero Image 3">
+		</div>
+
+		<!-- Animated About Our Company Section Overlay -->
+		<style>
+			@keyframes slideUpPopup {
+				from {
+					opacity: 0;
+					transform: translateY(100px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.about-company-overlay {
+				animation: slideUpPopup 1.2s ease-out forwards;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 4rem 2rem 5rem 2rem;
+				z-index: 10;
+				text-align: center;
+			}
+
+			.about-company-content {
+				max-width: 1200px;
+				margin: 0 auto;
+				position: relative;
+				z-index: 11;
+			}
+
+			.about-company-label {
+				color: #f57c1f;
+				font-size: 0.95rem;
+				font-weight: 600;
+				letter-spacing: 1px;
+				margin: 0 0 1rem 0;
+				text-transform: uppercase;
+			}
+
+			.about-company-title {
+				color: #fff;
+				font-size: 3.5rem;
+				font-weight: 700;
+				margin: 0 0 1.5rem 0;
+				line-height: 1.3;
+				max-width: 1000px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.about-company-title .orange {
+				color: #f57c1f;
+			}
+
+			.about-company-description {
+				color: #f0f0f0;
+				font-size: 1.05rem;
+				line-height: 1.8;
+				margin: 0 0 2.5rem 0;
+				max-width: 900px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.about-company-buttons {
+				display: flex;
+				gap: 2rem;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+
+			.about-company-btn {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.8rem;
+				padding: 1rem 2.5rem;
+				background: #f57c1f;
+				color: #fff;
+				text-decoration: none;
+				border-radius: 50px;
+				font-weight: 600;
+				font-size: 1.05rem;
+				border: none;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);
+			}
+
+			.about-company-btn:hover {
+				background: #e86e1a;
+				transform: translateY(-4px) scale(1.08);
+				box-shadow: 0 8px 30px rgba(245, 124, 31, 0.7);
+			}
+
+			.about-company-btn svg {
+				width: 20px;
+				height: 20px;
+				transition: transform 0.3s ease;
+			}
+
+			.about-company-btn:hover svg {
+				transform: rotate(75deg);
+			}
+
+			@media (max-width: 1024px) {
+				.about-company-overlay {
+					padding: 3.5rem 1.5rem 4.5rem 1.5rem;
+				}
+
+				.about-company-title {
+					font-size: 2.8rem;
+				}
+
+				.about-company-description {
+					font-size: 1rem;
+				}
+
+				.about-company-btn {
+					padding: 0.8rem 1.8rem;
+					font-size: 0.95rem;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.about-company-overlay {
+					padding: 2.5rem 1rem 3.5rem 1rem;
+				}
+
+				.about-company-title {
+					font-size: 2rem;
+				}
+
+				.about-company-label {
+					font-size: 0.85rem;
+					margin-bottom: 0.8rem;
+				}
+
+				.about-company-description {
+					font-size: 0.95rem;
+					margin-bottom: 1.5rem;
+				}
+
+				.about-company-buttons {
+					flex-direction: column;
+					align-items: center;
+					gap: 1rem;
+				}
+
+				.about-company-btn {
+					width: 90%;
+					max-width: 300px;
+					justify-content: center;
+					padding: 0.75rem 1.5rem;
+					font-size: 0.9rem;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.about-company-overlay {
+					padding: 2rem 0.75rem 2.5rem 0.75rem;
+				}
+
+				.about-company-title {
+					font-size: 1.6rem;
+					margin-bottom: 1rem;
+				}
+
+				.about-company-label {
+					font-size: 0.75rem;
+					margin-bottom: 0.5rem;
+				}
+
+				.about-company-description {
+					font-size: 0.85rem;
+					margin-bottom: 1.2rem;
+					line-height: 1.6;
+				}
+
+				.about-company-btn {
+					font-size: 0.8rem;
+					padding: 0.6rem 1.2rem;
+					gap: 0.4rem;
+				}
+
+				.about-company-btn svg {
+					width: 16px;
+					height: 16px;
+				}
+			}
+		</style>
+
+		<!-- Animated About Company Overlay -->
+		<div class="about-company-overlay">
+			<div class="about-company-content">
+				<p class="about-company-label">About Our Company</p>
+				<h2 class="about-company-title">
+					Custom Signs, Branding & Visual Marketing <span class="orange">For Your Business</span>.
+				</h2>
+				<p class="about-company-description">
+					We create high-quality, custom signage that grabs attention and enhances your brand. From storefront signs to vehicle wraps, we bring your vision to life with precision and style.
+				</p>
+				<div class="about-company-buttons">
+					<a href="#" class="about-company-btn">
+						Get A Quote
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M5 12h14M12 5l7 7-7 7"/>
+						</svg>
+					</a>
+					<a href="#" class="about-company-btn">
+						Explore Our Work
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<path d="M5 12h14M12 5l7 7-7 7"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- Floating action buttons container -->
+		<div class="floating-btns">
+			<!-- WhatsApp floating button -->
+			<a href="https://wa.me/971559955339" target="_blank">
+				<img src="/static/images/whatsapp.png" alt="WhatsApp">
+			</a>
+			<!-- Chat floating button -->
+			<a href="#">
+				<img src="/static/images/chat.png" alt="Chat">
+			</a>
+		</div>
+	</div>
+
+	<!-- ABOUT SECTION -->
+	<section style="background: #f8f8f8; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Label -->
+			<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">About Our Company</p>
+			
+			<!-- Section Title -->
+			<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 2.5rem 0; line-height: 1.2;">Signs That Showcase Your<br>Brand's Identity</h2>
+			
+			<!-- Content Container -->
+			<div style="display: flex; gap: 3rem; align-items: flex-start;">
+				<!-- Left: Image with Get A Quote button -->
+				<div style="position: relative; flex-shrink: 0;">
+					<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=350&fit=crop" alt="Team working together" style="width: 380px; height: 320px; object-fit: cover; border-radius: 8px;">
+					<!-- Get A Quote floating button -->
+					<a href="#" class="rotating-quote" style="position: absolute; top: 50%; right: -40px; width: 85px; height: 85px; background: #f57c1f; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; color: #fff; font-size: 0.7rem; font-weight: 500; text-align: center; line-height: 1.2; border: 4px solid #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+						<span style="font-size: 0.6rem; letter-spacing: 0.5px;">GET A</span>
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="margin: 3px 0; transform: rotate(-45deg);">
+							<path d="M5 12h14M12 5l7 7-7 7"/>
+						</svg>
+						<span style="font-size: 0.6rem; letter-spacing: 0.5px;">QUOTE</span>
+					</a>
+				</div>
+				
+				<!-- Right: Text Content -->
+				<div style="flex: 1;">
+					<!-- Description paragraphs -->
+					<p style="color: #444; font-size: 1rem; line-height: 1.8; margin: 0 0 1.5rem 0;">
+						At Malizia, we specialize in crafting high-quality, custom signage that enhances your brand's visibility and impact. Our expert team is dedicated to delivering precision, durability, and eye-catching designs that help your business stand out.
+					</p>
+					<p style="color: #444; font-size: 1rem; line-height: 1.8; margin: 0 0 2rem 0;">
+						Whether you need storefront signs, vehicle wraps, or indoor displays, we provide tailored solutions to meet your unique requirements. We work closely with you from concept to completion, ensuring that every detail aligns with your brand's identity.
+					</p>
+					
+					<!-- Features List -->
+					<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 3rem;">
+						<!-- Feature 1 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Scalable Solutions</span>
+						</div>
+						<!-- Feature 2 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Instant Brand Visibility</span>
+						</div>
+						<!-- Feature 3 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Expert Craftsmanship</span>
+						</div>
+						<!-- Feature 4 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Timely Delivery</span>
+						</div>
+						<!-- Feature 5 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Custom & Flexible Designs</span>
+						</div>
+						<!-- Feature 6 -->
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<span style="width: 24px; height: 24px; background: #f57c1f; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+									<path d="M5 12l5 5L20 7"/>
+								</svg>
+							</span>
+							<span style="font-weight: 600; color: #222;">Dedicated Support</span>
+						</div>
+					</div>
+					
+					<!-- Get A Quote Button -->
+					<a href="#" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.9rem 1.8rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 1rem; margin-top: 2rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);" onmouseover="this.style.transform='translateY(-4px) scale(1.08)'; this.style.boxShadow='0 8px 30px rgba(245, 124, 31, 0.7)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(245, 124, 31, 0.4)'">
+						Get A Quote
+						<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="transition: transform 0.3s ease;">
+							<path d="M7 17L17 7M17 7H7M17 7V17"/>
+						</svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- OUR SERVICES SECTION -->
+	<section style="background: #f8f8f8; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Header -->
+			<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem;">
+				<div>
+					<!-- Section Label -->
+					<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">Our Services</p>
+					<!-- Section Title -->
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;">Explore Our Signage<br>Solutions</h2>
+				</div>
+				<!-- View All Services Button -->
+				<a href="/services/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);" onmouseover="this.style.transform='translateY(-4px) scale(1.08)'; this.style.boxShadow='0 8px 30px rgba(245, 124, 31, 0.7)'; this.querySelector('svg').style.transform='rotate(75deg)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(245, 124, 31, 0.4)'; this.querySelector('svg').style.transform='rotate(0)'">
+					View All Services
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="transition: transform 0.3s ease;">
+						<path d="M7 17L17 7M17 7H7M17 7V17"/>
+					</svg>
+				</a>
+			</div>
+			
+			<!-- Services Cards Container -->
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+				<!-- Service Card 1: LED Displays -->
+				<div class="service-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); cursor: pointer;">
+					<!-- Card Header -->
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0;">LED Displays</h3>
+						<a href="/services/led-displays/" class="arrow-btn" style="width: 40px; height: 40px; background: #f57c1f; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<!-- Card Description -->
+					<p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0;">High-impact LED displays that captivate and engage your audience.</p>
+					<!-- Card Image with scroll effect -->
+					<div class="service-img-container" style="height: 180px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=400&fit=crop" alt="LED Displays" class="service-img" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease;">
+					</div>
+				</div>
+				
+				<!-- Service Card 2: Outdoor Signage -->
+				<div class="service-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); cursor: pointer;">
+					<!-- Card Header -->
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0;">Outdoor Signage</h3>
+						<a href="/services/outdoor-signage/" class="arrow-btn" style="width: 40px; height: 40px; background: #f57c1f; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<!-- Card Description -->
+					<p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0;">High-impact LED displays that captivate and engage your audience.</p>
+					<!-- Card Image with scroll effect -->
+					<div class="service-img-container" style="height: 180px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=400&h=400&fit=crop" alt="Outdoor Signage" class="service-img" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease;">
+					</div>
+				</div>
+				
+				<!-- Service Card 3: Vehicle Graphics -->
+				<div class="service-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); cursor: pointer;">
+					<!-- Card Header -->
+					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0;">Vehicle Graphics</h3>
+						<a href="/services/vehicle-graphics/" class="arrow-btn" style="width: 40px; height: 40px; background: #f57c1f; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: transform 0.3s ease;">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+								<path d="M7 17L17 7M17 7H7M17 7V17"/>
+							</svg>
+						</a>
+					</div>
+					<!-- Card Description -->
+					<p style="color: #666; font-size: 0.95rem; line-height: 1.6; margin: 0 0 1rem 0;">High-impact LED displays that captivate and engage your audience.</p>
+					<!-- Card Image with scroll effect -->
+					<div class="service-img-container" style="height: 180px; border-radius: 12px; overflow: hidden;">
+						<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=400&h=400&fit=crop" alt="Vehicle Graphics" class="service-img" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- OUR WORKS SECTION -->
+	<section style="background: #f8f8f8; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Header -->
+			<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem;">
+				<div>
+					<!-- Section Label -->
+					<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">Our Works</p>
+					<!-- Section Title -->
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;">Excellence from concept<br>to completion</h2>
+				</div>
+			<!-- View All Works Button -->
+			<a href="/projects/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);" onmouseover="this.style.transform='translateY(-4px) scale(1.08)'; this.style.boxShadow='0 8px 30px rgba(245, 124, 31, 0.7)'; this.querySelector('svg').style.transform='rotate(75deg)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(245, 124, 31, 0.4)'; this.querySelector('svg').style.transform='rotate(0)'">
+				View All Works
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="transition: transform 0.3s ease;">
+					<path d="M7 17L17 7M17 7H7M17 7V17"/>
+				</svg>
+			</a>
+		</div>			<!-- Works Cards Grid - 2x2 -->
+			<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+				<!-- Work Card 1: AL Ansari Exchange -->
+				<div class="work-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<!-- Card Image -->
+					<div class="work-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop" alt="AL Ansari Exchange" class="work-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+					<!-- Category Tag -->
+					<span style="display: inline-block; border: 1px solid #ddd; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.8rem; color: #666; margin-bottom: 0.8rem;">Outdoor Signage</span>
+					<!-- Project Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">AL Ansari Exchange</h3>
+					<!-- Location -->
+					<p style="color: #888; font-size: 0.9rem; margin: 0 0 0.8rem 0;">Dubai</p>
+					<!-- Description -->
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0;">We delivered custom vehicle wraps that turned their fleet into mobile brand billboards, ensuring maximum visibility.</p>
+				</div>
+				
+				<!-- Work Card 2: Sharjah International Airport -->
+				<div class="work-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<!-- Card Image -->
+					<div class="work-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=300&fit=crop" alt="Sharjah International Airport" class="work-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+					<!-- Category Tag -->
+					<span style="display: inline-block; border: 1px solid #ddd; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.8rem; color: #666; margin-bottom: 0.8rem;">Vinyl Stickers</span>
+					<!-- Project Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Sharjah International Airport</h3>
+					<!-- Location -->
+					<p style="color: #888; font-size: 0.9rem; margin: 0 0 0.8rem 0;">Dubai</p>
+					<!-- Description -->
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0;">We created custom glass stickers that turned windows into bold branding spaces, boosting visibility effortlessly.</p>
+				</div>
+				
+				<!-- Work Card 3: Dubai Municipality -->
+				<div class="work-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<!-- Card Image -->
+					<div class="work-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=500&h=300&fit=crop" alt="Dubai Municipality" class="work-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+					<!-- Category Tag -->
+					<span style="display: inline-block; border: 1px solid #ddd; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.8rem; color: #666; margin-bottom: 0.8rem;">Indoor Signage</span>
+					<!-- Project Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Dubai Municipality</h3>
+					<!-- Location -->
+					<p style="color: #888; font-size: 0.9rem; margin: 0 0 0.8rem 0;">Dubai</p>
+					<!-- Description -->
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0;">We delivered custom indoor signage that transformed their space into a branded environment, ensuring strong visual impact.</p>
+				</div>
+				
+				<!-- Work Card 4: Sharjah Book Authority -->
+				<div class="work-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+					<!-- Card Image -->
+					<div class="work-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&h=300&fit=crop" alt="Sharjah Book Authority" class="work-img" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;">
+					</div>
+					<!-- Category Tag -->
+					<span style="display: inline-block; border: 1px solid #ddd; border-radius: 20px; padding: 0.3rem 0.8rem; font-size: 0.8rem; color: #666; margin-bottom: 0.8rem;">Outdoor Signage</span>
+					<!-- Project Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 0.3rem 0;">Sharjah Book Authority</h3>
+					<!-- Location -->
+					<p style="color: #888; font-size: 0.9rem; margin: 0 0 0.8rem 0;">Dubai</p>
+					<!-- Description -->
+					<p style="color: #666; font-size: 0.9rem; line-height: 1.6; margin: 0;">We delivered custom indoor signage that transformed their space into a powerful brand environment, ensuring maximum impact.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHY CHOOSE US SECTION -->
+	<section style="background: #f5f5f5; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Label -->
+			<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">Why Choose us ?</p>
+			<!-- Section Title -->
+			<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 3rem 0; line-height: 1.2;">What Makes Us<br>Stand Out?</h2>
+			
+			<!-- Cards Container -->
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+				<!-- Card 1: Innovation -->
+				<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+					<!-- Icon -->
+					<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+						<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!-- Outer circle -->
+							<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Light bulb body -->
+							<path d="M35 18C29 18 24 23 24 29C24 33 26 36 29 38V42C29 43 30 44 31 44H39C40 44 41 43 41 42V38C44 36 46 33 46 29C46 23 41 18 35 18Z" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Bulb base lines -->
+							<line x1="30" y1="47" x2="40" y2="47" stroke="#222" stroke-width="2"/>
+							<line x1="31" y1="50" x2="39" y2="50" stroke="#222" stroke-width="2"/>
+							<!-- Gear/cog around bulb -->
+							<path d="M35 12V15M35 55V52M47 23L44 25M26 45L23 47M48 35H45M25 35H22M47 47L44 45M26 25L23 23" stroke="#f57c1f" stroke-width="2" stroke-linecap="round"/>
+							<!-- Inner glow dots -->
+							<circle cx="35" cy="29" r="2" fill="#f57c1f"/>
+						</svg>
+					</div>
+					<!-- Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Innovation</h3>
+					<!-- Description -->
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">We blend creativity and technology to deliver bold, standout signage.</p>
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">We use fresh ideas and modern tools to create eye-catching signs.</p>
+				</div>
+				
+				<!-- Card 2: Quality Commitment -->
+				<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+					<!-- Icon -->
+					<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+						<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!-- Outer circle -->
+							<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Hand -->
+							<path d="M25 45C25 45 25 35 25 32C25 29 27 28 29 28C31 28 32 29 32 32V38" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/>
+							<path d="M32 38V26C32 24 34 23 36 23C38 23 39 24 39 26V38" stroke="#222" stroke-width="2" fill="none"/>
+							<path d="M39 38V28C39 26 41 25 43 25C45 25 46 26 46 28V40C46 45 42 50 35 50C28 50 25 47 25 45" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Stars above hand -->
+							<path d="M35 15L36 18L39 18L37 20L38 23L35 21L32 23L33 20L31 18L34 18L35 15Z" fill="#f57c1f"/>
+							<circle cx="27" cy="20" r="1.5" fill="#f57c1f"/>
+							<circle cx="43" cy="20" r="1.5" fill="#f57c1f"/>
+						</svg>
+					</div>
+					<!-- Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Quality Commitment</h3>
+					<!-- Description -->
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">We focus on precision and durability to deliver top-quality signage.</p>
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">Every project is built with care to meet the highest standards.</p>
+				</div>
+				
+				<!-- Card 3: Proven Expertise -->
+				<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+					<!-- Icon -->
+					<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+						<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<!-- Outer circle -->
+							<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Award/Medal ribbon -->
+							<path d="M28 45L35 40L42 45V55L35 50L28 55V45Z" stroke="#f57c1f" stroke-width="2" fill="none"/>
+							<!-- Inner circle badge -->
+							<circle cx="35" cy="30" r="12" stroke="#222" stroke-width="2" fill="none"/>
+							<!-- Star inside badge -->
+							<path d="M35 22L37 27L42 27L38 30L39 35L35 32L31 35L32 30L28 27L33 27L35 22Z" fill="#f57c1f"/>
+						</svg>
+					</div>
+					<!-- Title -->
+					<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Proven Expertise</h3>
+					<!-- Description -->
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">With 15+ years of experience, we craft signage that's bold, reliable, and built to last.</p>
+					<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">Decades of know-how meet modern design to create signs that truly stand out.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- OUR TRUSTED CLIENTS SECTION -->
+	<section style="background: #f5f5f5; padding: 4rem 2rem; overflow: hidden;">
+		<div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+			<!-- Section Title -->
+			<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 3rem 0;">Our Trusted Clients</h2>
+			
+			<!-- Scrolling Logos Container -->
+			<div style="position: relative; width: 100%; overflow: hidden;">
+				<div class="clients-scroll" style="display: flex; gap: 4rem; animation: scrollLogos 20s linear infinite;">
+					<!-- Logo 1: Wendy's -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 2: Huawei -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="/static/images/huawei.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 3: Keong Hong -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 180px;">
+						<div style="display: flex; align-items: center; gap: 0.5rem;">
+							<div style="width: 45px; height: 45px; background: linear-gradient(135deg, #c41e3a, #e74c3c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;">K</div>
+							<div style="text-align: left;">
+								<div style="font-size: 0.75rem; font-weight: 600; color: #333; letter-spacing: 0.5px;">KEONG HONG HOLDINGS LIMITED</div>
+								<div style="font-size: 0.6rem; color: #666;">強楓控股有限公司</div>
+							</div>
+						</div>
+					</div>
+					<!-- Logo 4: Huawei (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="/static/images/huawei.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 5: Wendy's (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 6: Huawei (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="/static/images/huawei.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 7: Wendy's (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+					
+					<!-- Duplicate set for seamless loop -->
+					<!-- Logo 1: Wendy's -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 2: Huawei -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 3: Keong Hong -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 180px;">
+						<div style="display: flex; align-items: center; gap: 0.5rem;">
+							<div style="width: 45px; height: 45px; background: linear-gradient(135deg, #c41e3a, #e74c3c); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 1.2rem;">K</div>
+							<div style="text-align: left;">
+								<div style="font-size: 0.75rem; font-weight: 600; color: #333; letter-spacing: 0.5px;">KEONG HONG HOLDINGS LIMITED</div>
+								<div style="font-size: 0.6rem; color: #666;">強楓控股有限公司</div>
+							</div>
+						</div>
+					</div>
+					<!-- Logo 4: Huawei (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 5: Wendy's (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 6: Huawei (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Huawei_Logo.svg/200px-Huawei_Logo.svg.png" alt="Huawei" style="height: 60px; object-fit: contain;">
+					</div>
+					<!-- Logo 7: Wendy's (repeat) -->
+					<div style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; min-width: 150px;">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/Wendy%27s_full_logo_2012.svg/200px-Wendy%27s_full_logo_2012.svg.png" alt="Wendy's" style="height: 60px; object-fit: contain;">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CLIENT TESTIMONIALS SECTION -->
+	<section style="background: #f0f0f0; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Label -->
+			<p style="color: #f57c1f; font-size: 1rem; font-weight: 600; font-style: italic; margin: 0 0 0.5rem 0;">Client Testimonials</p>
+			<!-- Section Title -->
+			<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 3rem 0; line-height: 1.2;">Trusted by<br>Businesses Everywhere</h2>
+			
+			<!-- Testimonials Scrolling Container -->
+			<div style="position: relative; overflow: hidden; width: 100%;">
+			<div class="testimonials-track">
+					<!-- Testimonial Card 1: John Doe -->
+					<div class="testimonial-card">
+							<!-- Stars -->
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Great quality and fast service! The signs look amazing and really helped our business stand out. Highly recommend Malizia for any signage needs</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Doe" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">John Doe</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Acme Solutions</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial Card 2: Jane Watson -->
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Fantastic service and top-notch quality! The signs turned out beautifully and truly elevated our business's visibility. I highly recommend Malizia for all your signage requirements.</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Jane Watson" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Jane Watson</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Beta Innovations</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial Card 3: Robert Winger -->
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Excellent craftsmanship and quick turnaround! The banners are stunning and truly made our brand pop. Highly endorse Malizia for all your signage requirements.</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Robert Winger" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Robert Winger</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Tech Innovations</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Outstanding work on our storefront signage! The team was professional and delivered exactly what we envisioned. Our customers love the new look!</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Sarah Miller" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Sarah Miller</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Dubai Retail Co.</p>
+								</div>
+							</div>
+						</div>
+						
+					<!-- Duplicate cards for seamless looping -->
+					<!-- Testimonial Card 1 (Duplicate): John Doe -->
+					<div class="testimonial-card">
+							<!-- Stars -->
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Great quality and fast service! The signs look amazing and really helped our business stand out. Highly recommend Malizia for any signage needs</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Doe" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">John Doe</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Acme Solutions</p>
+								</div>
+							</div>
+						</div>
+						
+					<!-- Testimonial Card 2 (Duplicate): Jane Watson -->
+					<div class="testimonial-card">
+						<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+						</div>
+						<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Fantastic service and top-notch quality! The signs turned out beautifully and truly elevated our business's visibility. I highly recommend Malizia for all your signage requirements.</p>
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Jane Watson" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+							<div>
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Jane Watson</h4>
+								<p style="font-size: 0.85rem; color: #666; margin: 0;">Beta Innovations</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Testimonial Card 3 (Duplicate): Robert Winger -->
+					<div class="testimonial-card">
+						<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+						</div>
+						<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Excellent craftsmanship and quick turnaround! The banners are stunning and truly made our brand pop. Highly endorse Malizia for all your signage requirements.</p>
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Robert Winger" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+							<div>
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Robert Winger</h4>
+								<p style="font-size: 0.85rem; color: #666; margin: 0;">Tech Innovations</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Testimonial Card 4 (Duplicate): Sarah Miller -->
+					<div class="testimonial-card">
+						<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+						</div>
+						<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Outstanding work on our storefront signage! The team was professional and delivered exactly what we envisioned. Our customers love the new look!</p>
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Sarah Miller" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+							<div>
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Sarah Miller</h4>
+								<p style="font-size: 0.85rem; color: #666; margin: 0;">Dubai Retail Co.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Navigation Dots -->
+			<div style="display: flex; justify-content: center; gap: 0.8rem; margin-top: 2rem;">
+				<span style="width: 12px; height: 12px; border-radius: 50%; background: #555; cursor: pointer; transition: all 0.3s ease;"></span>
+				<span style="width: 12px; height: 12px; border-radius: 50%; background: #f57c1f; cursor: pointer; transition: all 0.3s ease;"></span>
+				<span style="width: 12px; height: 12px; border-radius: 50%; background: #555; cursor: pointer; transition: all 0.3s ease;"></span>
+				<span style="width: 12px; height: 12px; border-radius: 50%; background: #555; cursor: pointer; transition: all 0.3s ease;"></span>
+			</div>
+		</div>
+	</section>
+
+	<!-- LATEST BLOG & ARTICLES SECTION -->
+	<section style="background: #f8f8f8; padding: 4rem 2rem;">
+		<div style="max-width: 1200px; margin: 0 auto;">
+			<!-- Section Header -->
+			<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem;">
+				<div>
+					<!-- Section Label -->
+					<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">Latest Blog & Articles</p>
+					<!-- Section Title -->
+					<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;">Key Insights You<br>Should Know</h2>
+				</div>
+				<!-- View All Articles Button -->
+			<a href="/blog/" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f57c1f; color: #fff; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(245, 124, 31, 0.4);" onmouseover="this.style.transform='translateY(-4px) scale(1.08)'; this.style.boxShadow='0 8px 30px rgba(245, 124, 31, 0.7)'; this.querySelector('svg').style.transform='rotate(75deg)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 15px rgba(245, 124, 31, 0.4)'; this.querySelector('svg').style.transform='rotate(0)'">
+				View All Articles
+				<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" style="transition: transform 0.3s ease;">
+					<path d="M7 17L17 7M17 7H7M17 7V17"/>
+				</svg>
+			</a>
+		</div>			<!-- Blog Cards Container -->
+			<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+				<!-- Blog Card 1 -->
+				<div class="blog-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: all 0.3s ease;">
+					<!-- Card Image -->
+					<div class="blog-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&h=300&fit=crop" alt="Digital Signage" style="width: 100%; height: 100%; object-fit: cover;">
+					</div>
+					<!-- Date -->
+					<p style="color: #888; font-size: 0.85rem; margin: 0 0 0.5rem 0;">April 25 , 2025</p>
+					<!-- Title -->
+					<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0; line-height: 1.4;">How High-Quality Signage Boosts Your Brand Visibility</h3>
+				</div>
+				
+				<!-- Blog Card 2 -->
+				<div class="blog-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: all 0.3s ease;">
+					<!-- Card Image -->
+					<div class="blog-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=500&h=300&fit=crop" alt="LED Signs" style="width: 100%; height: 100%; object-fit: cover;">
+					</div>
+					<!-- Date -->
+					<p style="color: #888; font-size: 0.85rem; margin: 0 0 0.5rem 0;">August 5 , 2025</p>
+					<!-- Title -->
+					<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0; line-height: 1.4;">How LED Signs Can Help Grow Your Business</h3>
+				</div>
+				
+				<!-- Blog Card 3 -->
+				<div class="blog-card" style="background: #fff; border-radius: 24px; padding: 1.5rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25); transition: all 0.3s ease;">
+					<!-- Card Image -->
+					<div class="blog-img-container" style="height: 200px; border-radius: 16px; overflow: hidden; margin-bottom: 1rem;">
+						<img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=500&h=300&fit=crop" alt="Vehicle Wraps" style="width: 100%; height: 100%; object-fit: cover;">
+					</div>
+					<!-- Date -->
+					<p style="color: #888; font-size: 0.85rem; margin: 0 0 0.5rem 0;">March 10 , 2025</p>
+					<!-- Title -->
+					<h3 style="font-size: 1.2rem; font-weight: 700; color: #111; margin: 0; line-height: 1.4;">Can Vehicle Wraps Boost Your Business Promotion?</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+
+	<!-- JavaScript for service card hover effects -->
+	<script>
+		// Office tour - quick transitions between images
+		const mainBg = document.querySelector('.main-bg');
+		
+		// Start the touring animation
+		mainBg.classList.add('touring');
+
+		// Service card hover: image popup + arrow rotates 45 degrees
+		document.querySelectorAll('.service-card').forEach(card => {
+			const img = card.querySelector('.service-img');
+			const arrow = card.querySelector('.arrow-btn');
+			const arrowSvg = arrow ? arrow.querySelector('svg') : null;
+			
+			card.addEventListener('mouseenter', () => {
+				// Image popup effect
+				if (img) {
+					img.style.transform = 'scale(1.15)';
+				}
+				// Arrow icon rotates 75 degrees (points downward)
+				if (arrowSvg) {
+					arrowSvg.style.transition = 'transform 0.3s ease';
+					arrowSvg.style.transform = 'rotate(75deg)';
+				}
+			});
+			
+			card.addEventListener('mouseleave', () => {
+				// Reset image
+				if (img) {
+					img.style.transform = 'scale(1)';
+				}
+				// Reset arrow icon
+				if (arrowSvg) {
+					arrowSvg.style.transform = 'rotate(0deg)';
+				}
+			});
+		});
+	</script>
+</body>
+</html>

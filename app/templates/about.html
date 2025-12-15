@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - About Us</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #fff;
+		}
+
+		/* Hero Section */
+		.hero-section {
+			background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/static/images/servicebg.png');
+			background-size: cover;
+			background-position: center;
+			padding: 8rem 2rem 6rem 2rem;
+			text-align: center;
+			position: relative;
+		}
+
+		.hero-section h1 {
+			font-size: 4rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 1.5rem 0;
+		}
+
+		.breadcrumb {
+			border: 2px solid #f57c1f;
+			border-radius: 25px;
+			padding: 0.6rem 1.5rem;
+			display: inline-block;
+			margin-bottom: 2rem;
+			font-size: 0.9rem;
+			color: #666;
+		}
+
+		.breadcrumb a {
+			color: #f57c1f;
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		.breadcrumb span {
+			color: #999;
+			margin: 0 0.5rem;
+		}
+
+		.breadcrumb .current {
+			color: #f57c1f;
+			font-weight: 500;
+		}
+
+		/* Floating Buttons */
+		.floating-buttons {
+			position: absolute;
+			right: 40px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 18px;
+			z-index: 20;
+		}
+
+		.floating-btn {
+			width: auto;
+			height: auto;
+			background: transparent;
+			border-radius: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-decoration: none;
+			transition: opacity 0.2s;
+			box-shadow: none;
+		}
+
+		.floating-btn:hover {
+			opacity: 0.8;
+			background: transparent;
+			transform: none;
+			box-shadow: none;
+		}
+
+		.floating-btn img {
+			width: 50px;
+			height: 50px;
+			object-fit: contain;
+		}
+
+		/* Main Content */
+		.about-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 2rem;
+		}
+
+		/* Signs Section */
+		.signs-section {
+			padding: 5rem 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 5rem;
+			align-items: center;
+		}
+
+		.signs-left {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.signs-content .section-label,
+		.signs-left .section-label {
+			color: #f57c1f;
+			font-size: 0.9rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 0 0 1rem 0;
+		}
+
+		.signs-content h2,
+		.signs-left h2 {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 2rem 0;
+			line-height: 1.3;
+		}
+
+		.signs-content p {
+			font-size: 0.95rem;
+			color: #666;
+			line-height: 1.8;
+			margin: 0 0 1.5rem 0;
+		}
+
+		.signs-image-wrapper {
+			position: relative;
+			display: inline-block;
+			margin-bottom: 3rem;
+		}
+
+		.signs-image-wrapper img {
+			width: 100%;
+			max-width: 400px;
+			border-radius: 12px;
+		}
+
+		.signs-features {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5rem;
+			margin-top: 2rem;
+		}
+
+		.feature-row {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 2rem;
+		}
+
+		.feature-item {
+			display: flex;
+			align-items: center;
+			gap: 0.8rem;
+		}
+
+		.checkmark {
+			width: 28px;
+			height: 28px;
+			flex-shrink: 0;
+			background: #f57c1f;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.feature-item p {
+			font-size: 0.95rem;
+			color: #333;
+			margin: 0;
+			font-weight: 500;
+		}
+
+		.badge {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			background: #f57c1f;
+			color: white;
+			padding: 12px 16px;
+			border-radius: 8px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			z-index: 10;
+			box-shadow: 0 4px 12px rgba(245, 124, 31, 0.3);
+			width: auto;
+		}
+
+		.badge-number {
+			font-size: 1.5rem;
+			font-weight: 700;
+		}
+
+		.badge-text {
+			font-size: 0.8rem;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		/* What Makes Us Stand Out */
+		.standout-section {
+			padding: 5rem 0;
+			background: #f8f8f8;
+			margin: 0 -2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		.standout-section h2 {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 3rem 0;
+			text-align: center;
+		}
+
+		.standout-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+
+		.standout-card {
+			background: white;
+			padding: 2rem;
+			border-radius: 12px;
+			text-align: center;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+		}
+
+		.standout-card-icon {
+			width: 70px;
+			height: 70px;
+			background: #f5f5f5;
+			border-radius: 50%;
+			margin: 0 auto 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.standout-card-icon svg {
+			width: 40px;
+			height: 40px;
+		}
+
+		.standout-card h3 {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #111;
+			margin: 0 0 1rem 0;
+		}
+
+		.standout-card p {
+			font-size: 0.9rem;
+			color: #666;
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		/* Chairman Section */
+		.chairman-section {
+			padding: 5rem 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
+			align-items: center;
+		}
+
+		.chairman-image {
+			text-align: center;
+		}
+
+		.chairman-image img {
+			width: 100%;
+			max-width: 350px;
+			border-radius: 12px;
+		}
+
+		.chairman-content h2 {
+			font-size: 1.8rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 1rem 0;
+		}
+
+		.chairman-content h3 {
+			font-size: 1rem;
+			font-weight: 500;
+			color: #f57c1f;
+			margin: 0 0 1.5rem 0;
+		}
+
+		.chairman-content p {
+			font-size: 0.95rem;
+			color: #666;
+			line-height: 1.8;
+			margin: 0 0 1rem 0;
+		}
+
+		/* Stats Section */
+		.stats-section {
+			padding: 5rem 0;
+			background: #f8f8f8;
+			margin: 0 -2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		.stats-label {
+			color: #f57c1f;
+			font-size: 0.9rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			margin: 0 0 1rem 0;
+		}
+
+		.stats-title {
+			font-size: 3rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 3rem 0;
+		}
+
+		.stats-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+		}
+
+		.stat-card {
+			background: white;
+			padding: 2rem;
+			border-radius: 16px;
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+			text-align: center;
+		}
+
+		.stat-card h3 {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 0.5rem 0;
+		}
+
+		.stat-subtitle {
+			font-size: 0.9rem;
+			font-weight: 500;
+			display: inline-block;
+			margin-left: 0.5rem;
+		}
+
+		.stat-plus {
+			color: #f57c1f;
+			font-size: 1.8rem;
+		}
+
+		.stat-card p {
+			font-size: 0.9rem;
+			color: #999;
+			margin: 0;
+			font-weight: 500;
+		}
+
+		/* Services Categories Section */
+		.services-categories {
+			background: linear-gradient(135deg, #f57c1f 0%, #e56a0a 100%);
+			padding: 1.5rem 0;
+			overflow: hidden;
+			margin: 0;
+			width: 100vw;
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+		}
+
+		.categories-scroll {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 1.5rem;
+			color: white;
+			font-size: 1.1rem;
+			font-weight: 500;
+			white-space: nowrap;
+			padding: 0 2rem;
+		}
+
+		/* Trusted By Section */
+		.trusted-section {
+			padding: 5rem 0;
+			background: linear-gradient(135deg, #f57c1f 0%, #e56a0a 100%);
+			margin: 0 -2rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		.trusted-section h2 {
+			font-size: 2.5rem;
+			font-weight: 700;
+			color: white;
+			margin: 0 0 3rem 0;
+			text-align: center;
+		}
+
+		.trusted-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 2rem;
+		}
+
+		.trusted-card {
+			background: rgba(255, 255, 255, 0.95);
+			padding: 2rem;
+			border-radius: 12px;
+			text-align: center;
+		}
+
+		.trusted-card h3 {
+			font-size: 1.1rem;
+			font-weight: 600;
+			color: #111;
+			margin: 0 0 0.8rem 0;
+		}
+
+		.trusted-card p {
+			font-size: 0.85rem;
+			color: #666;
+			margin: 0;
+			line-height: 1.6;
+		}
+
+		/* Responsive */
+		@media (max-width: 1024px) {
+			.signs-section {
+				grid-template-columns: 1fr;
+			}
+
+			.chairman-section {
+				grid-template-columns: 1fr;
+			}
+
+			.standout-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.stats-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.trusted-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		@media (max-width: 768px) {
+			.hero-section {
+				padding: 5rem 1.5rem 4rem 1.5rem;
+			}
+
+			.hero-section h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.breadcrumb {
+				padding: 0.4rem 1rem;
+				font-size: 0.85rem;
+			}
+
+			.signs-content h2,
+			.standout-section h2,
+			.trusted-section h2 {
+				font-size: 1.8rem;
+			}
+
+			.standout-grid,
+			.stats-grid,
+			.trusted-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.floating-buttons {
+				right: 20px;
+				gap: 15px;
+			}
+
+			.floating-btn img {
+				width: 40px;
+				height: 40px;
+			}
+
+			.testimonial-card {
+				width: 280px;
+				height: 250px;
+				padding: 1.5rem;
+			}
+
+			.testimonials-track {
+				padding: 0 1rem;
+				gap: 1.2rem;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.hero-section {
+				padding: 3.5rem 1rem 2.5rem 1rem;
+			}
+
+			.hero-section h1 {
+				font-size: 1.8rem;
+				margin-bottom: 0.8rem;
+			}
+
+			.breadcrumb {
+				padding: 0.3rem 0.8rem;
+				font-size: 0.75rem;
+				gap: 0.3rem;
+			}
+
+			.signs-content h2,
+			.standout-section h2,
+			.trusted-section h2 {
+				font-size: 1.4rem;
+			}
+
+			.about-container {
+				padding: 0 1rem;
+			}
+
+			.standout-grid,
+			.stats-grid,
+			.trusted-grid {
+				grid-template-columns: 1fr;
+				gap: 1rem;
+			}
+
+			.floating-buttons {
+				right: 12px;
+				gap: 10px;
+				bottom: 15px;
+			}
+
+			.floating-btn img {
+				width: 35px;
+				height: 35px;
+			}
+
+			.testimonial-card {
+				width: 260px;
+				height: 230px;
+				padding: 1rem;
+				border-radius: 16px;
+			}
+
+			.testimonials-track {
+				padding: 0 0.5rem;
+				gap: 1rem;
+			}
+
+			/* Section padding adjustments */
+			section[style*="padding: 3rem 2rem"] {
+				padding: 2rem 1rem !important;
+			}
+
+			section[style*="padding: 4rem 2rem"] {
+				padding: 2.5rem 1rem !important;
+			}
+		}
+
+		/* Testimonials Section */
+		.testimonials-track {
+			display: flex;
+			gap: 1.5rem;
+			animation: scrollTestimonials 60s linear infinite;
+			width: max-content;
+			align-items: flex-start;
+			padding: 0 2rem;
+		}
+
+		.testimonials-track:hover {
+			animation-play-state: paused;
+		}
+
+		.testimonial-card {
+			flex-shrink: 0;
+			width: 340px;
+			height: 300px;
+			background: #fff;
+			border-radius: 20px;
+			padding: 2rem;
+			box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);
+			display: flex;
+			flex-direction: column;
+		}
+
+		@keyframes scrollTestimonials {
+			0% {
+				transform: translateX(0);
+			}
+			100% {
+				transform: translateX(calc(-340px * 4 - 1.5rem * 4));
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<h1>About Us</h1>
+		<div class="breadcrumb">
+			<a href="/">Home</a>
+			<span>/</span>
+			<span class="current">About Us</span>
+		</div>
+
+		<!-- Floating buttons -->
+		<div class="floating-buttons">
+			<a href="https://wa.me/971559955339" target="_blank" class="floating-btn">
+				<img src="/static/images/whatsapp.png" alt="WhatsApp">
+			</a>
+			<a href="#" class="floating-btn">
+				<img src="/static/images/chat.png" alt="Chat">
+			</a>
+		</div>
+	</section>
+
+	<!-- Main Content -->
+	<div class="about-container">
+		<!-- Signs Section -->
+		<section class="signs-section">
+			<div class="signs-left">
+				<p class="section-label">About Our Company</p>
+				<h2>Signs That Showcase Your Brand's Identity</h2>
+			<div class="signs-image-wrapper">
+				<img src="/static/images/about.png" alt="Signage">
+			</div>
+			</div>
+			<div class="signs-content">
+				<p>At Malizia, we specialize in crafting high-quality, custom signage that enhances your brand's visibility and impact. Our expert team is dedicated to delivering precision, durability, and eye-catching designs that help your business stand out.</p>
+				<p>Whether you need storefront signs, vehicle wraps, or indoor displays, we provide tailored solutions to meet your unique requirements. We work closely with you from concept to completion, ensuring that every detail aligns with your brand's identity.</p>
+				<div class="signs-features">
+					<div class="feature-row">
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Scalable Solutions</p>
+						</div>
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Instant Brand Visibility</p>
+						</div>
+					</div>
+					<div class="feature-row">
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Expert Craftsmanship</p>
+						</div>
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Timely Delivery</p>
+						</div>
+					</div>
+					<div class="feature-row">
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Custom & Flexible Designs</p>
+						</div>
+						<div class="feature-item">
+							<svg class="checkmark" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M20 6L9 17l-5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<p>Dedicated Support</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- What Makes Us Stand Out -->
+		<section style="background: #f5f5f5; padding: 4rem 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+			<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+				<!-- Section Label -->
+				<p style="color: #f57c1f; font-size: 1rem; font-weight: 500; margin: 0 0 0.5rem 0;">Why Choose us ?</p>
+				
+				<!-- Top Section with Title and Description -->
+				<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: flex-start; margin-bottom: 3rem;">
+					<!-- Left: Title -->
+					<div>
+						<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0; line-height: 1.2;">What Makes Us<br>Stand Out?</h2>
+					</div>
+					<!-- Right: Description -->
+					<div>
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.8; margin: 0;">We combine smart design with expert execution to create signage that truly stands out. Every detail is crafted to catch eyes, leave a lasting impression, and elevate your business presence with impact, precision, and style.</p>
+					</div>
+				</div>
+				
+				<!-- Cards Container -->
+				<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
+					<!-- Card 1: Innovation -->
+					<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+						<!-- Icon -->
+						<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+							<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!-- Outer circle -->
+								<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Light bulb body -->
+								<path d="M35 18C29 18 24 23 24 29C24 33 26 36 29 38V42C29 43 30 44 31 44H39C40 44 41 43 41 42V38C44 36 46 33 46 29C46 23 41 18 35 18Z" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Bulb base lines -->
+								<line x1="30" y1="47" x2="40" y2="47" stroke="#222" stroke-width="2"/>
+								<line x1="31" y1="50" x2="39" y2="50" stroke="#222" stroke-width="2"/>
+								<!-- Gear/cog around bulb -->
+								<path d="M35 12V15M35 55V52M47 23L44 25M26 45L23 47M48 35H45M25 35H22M47 47L44 45M26 25L23 23" stroke="#f57c1f" stroke-width="2" stroke-linecap="round"/>
+								<!-- Inner glow dots -->
+								<circle cx="35" cy="29" r="2" fill="#f57c1f"/>
+							</svg>
+						</div>
+						<!-- Title -->
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Innovation</h3>
+						<!-- Description -->
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">We blend creativity and technology to deliver bold, standout signage.</p>
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">We use fresh ideas and modern tools to create eye-catching signs.</p>
+					</div>
+					
+					<!-- Card 2: Quality Commitment -->
+					<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+						<!-- Icon -->
+						<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+							<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!-- Outer circle -->
+								<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Hand -->
+								<path d="M25 45C25 45 25 35 25 32C25 29 27 28 29 28C31 28 32 29 32 32V38" stroke="#222" stroke-width="2" fill="none" stroke-linecap="round"/>
+								<path d="M32 38V26C32 24 34 23 36 23C38 23 39 24 39 26V38" stroke="#222" stroke-width="2" fill="none"/>
+								<path d="M39 38V28C39 26 41 25 43 25C45 25 46 26 46 28V40C46 45 42 50 35 50C28 50 25 47 25 45" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Stars above hand -->
+								<path d="M35 15L36 18L39 18L37 20L38 23L35 21L32 23L33 20L31 18L34 18L35 15Z" fill="#f57c1f"/>
+								<circle cx="27" cy="20" r="1.5" fill="#f57c1f"/>
+								<circle cx="43" cy="20" r="1.5" fill="#f57c1f"/>
+							</svg>
+						</div>
+						<!-- Title -->
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Quality Commitment</h3>
+						<!-- Description -->
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">We focus on precision and durability to deliver top-quality signage.</p>
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">Every project is built with care to meet the highest standards.</p>
+					</div>
+					
+					<!-- Card 3: Proven Expertise -->
+					<div style="background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 20px rgba(245, 124, 31, 0.25);">
+						<!-- Icon -->
+						<div style="width: 70px; height: 70px; margin-bottom: 1.5rem;">
+							<svg viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<!-- Outer circle -->
+								<circle cx="35" cy="35" r="32" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Award/Medal ribbon -->
+								<path d="M28 45L35 40L42 45V55L35 50L28 55V45Z" stroke="#f57c1f" stroke-width="2" fill="none"/>
+								<!-- Inner circle badge -->
+								<circle cx="35" cy="30" r="12" stroke="#222" stroke-width="2" fill="none"/>
+								<!-- Star inside badge -->
+								<path d="M35 22L37 27L42 27L38 30L39 35L35 32L31 35L32 30L28 27L33 27L35 22Z" fill="#f57c1f"/>
+							</svg>
+						</div>
+						<!-- Title -->
+						<h3 style="font-size: 1.4rem; font-weight: 700; color: #111; margin: 0 0 1rem 0;">Proven Expertise</h3>
+						<!-- Description -->
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1rem 0;">With 15+ years of experience, we craft signage that's bold, reliable, and built to last.</p>
+						<p style="color: #555; font-size: 0.95rem; line-height: 1.7; margin: 0;">Decades of know-how meet modern design to create signs that truly stand out.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Chairman Message -->
+		<section class="chairman-section">
+			<div class="chairman-content">
+				<h2>Chairman Message</h2>
+				<h3>Najeer Ermassrayi</h3>
+				<p>As the Chairman of Malizia Sign, I'm proud to say it's one of the Middle East's most entrepreneurial and innovative companies. Over the past decade, Malizia Sign has become a leading outdoor and indoor media company with a growing global presence. Our success is driven by a commitment to innovation and manufacturing efficiency, allowing us to deliver impactful advertising solutions with high standards and industry-leading quality. With strong corporate governance at its core, the company is well-positioned to continue its growth and international expansion — or simply put, "The Trust and Best Signage Solution"</p>
+				<p>In today's world, media is one of the most powerful tools of communication. Malizia Sign remains dedicated to its founding vision while aligning with the unique policies and needs of each region we operate in. Our international presence has been shaped through strategic investments in advertising, marketing, research, and partnerships with leading global suppliers. While we've already achieved significant success, I am confident our team will continue to meet new challenges and deliver excellence for our expanding client base.</p>
+			</div>
+			<div class="chairman-image">
+				<img src="/static/images/chairman.png" alt="Chairman">
+			</div>
+		</section>
+
+		<!-- Stats Section -->
+		<section class="stats-section">
+			<div class="about-container">
+				<p class="stats-label">Overview Company</p>
+				<h2 class="stats-title">Stats that matter</h2>
+				<div class="stats-grid">
+					<div class="stat-card">
+						<h3>#1 <span class="stat-subtitle">It Service</span></h3>
+						<p class="stat-description">Company in UAE</p>
+					</div>
+					<div class="stat-card">
+						<h3>750 <span class="stat-plus">+</span></h3>
+						<p class="stat-description">Global Client</p>
+					</div>
+					<div class="stat-card">
+						<h3>15 <span class="stat-plus">+</span></h3>
+						<p class="stat-description">Work Experience</p>
+					</div>
+					<div class="stat-card">
+						<h3>1 <span class="stat-subtitle">Million</span> <span class="stat-plus">+</span></h3>
+						<p class="stat-description">Successful Projects</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Categories Section -->
+		<section class="services-categories">
+			<div class="categories-scroll">
+				<span>Digital Signage</span>
+				<span>•</span>
+				<span>Commercial Signage</span>
+				<span>•</span>
+				<span>Indoor Signage</span>
+				<span>•</span>
+				<span>Industrial Signage</span>
+				<span>•</span>
+				<span>LED Displays</span>
+			</div>
+		</section>
+
+	<!-- CLIENT TESTIMONIALS SECTION -->
+	<section style="background: #f0f0f0; padding: 4rem 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+		<div style="max-width: 100%; margin: 0 auto; padding: 0 2rem;">
+			<!-- Section Label -->
+			<p style="color: #f57c1f; font-size: 1rem; font-weight: 600; font-style: italic; margin: 0 0 0.5rem 0;">Client Testimonials</p>
+			<!-- Section Title -->
+			<h2 style="font-size: 2.8rem; font-weight: 700; color: #111; margin: 0 0 3rem 0; line-height: 1.2;">Trusted by<br>Businesses Everywhere</h2>
+			
+			<!-- Testimonials Scrolling Container -->
+		<div style="position: relative; overflow: hidden; width: 100%; padding: 0 1rem;">
+		<div class="testimonials-track">
+					<!-- Testimonial Card 1: John Doe -->
+					<div class="testimonial-card">
+							<!-- Stars -->
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Great quality and fast service! The signs look amazing and really helped our business stand out. Highly recommend Malizia for any signage needs</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Doe" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">John Doe</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Acme Solutions</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial Card 2: Jane Watson -->
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Fantastic service and top-notch quality! The signs turned out beautifully and truly elevated our business's visibility. I highly recommend Malizia for all your signage requirements.</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Jane Watson" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Jane Watson</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Beta Innovations</p>
+								</div>
+							</div>
+						</div>
+						
+						<!-- Testimonial Card 3: Robert Winger -->
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Excellent craftsmanship and quick turnaround! The banners are stunning and truly made our brand pop. Highly endorse Malizia for all your signage requirements.</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Robert Winger" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Robert Winger</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Tech Innovations</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="testimonial-card">
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Outstanding work on our storefront signage! The team was professional and delivered exactly what we envisioned. Our customers love the new look!</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Sarah Miller" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Sarah Miller</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Dubai Retail Co.</p>
+								</div>
+							</div>
+						</div>
+						
+					<!-- Duplicate cards for seamless looping -->
+					<!-- Testimonial Card 1 (Duplicate): John Doe -->
+					<div class="testimonial-card">
+							<!-- Stars -->
+							<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							</div>
+							<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Great quality and fast service! The signs look amazing and really helped our business stand out. Highly recommend Malizia for any signage needs</p>
+							<div style="display: flex; align-items: center; gap: 0.8rem;">
+								<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Doe" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+								<div>
+									<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">John Doe</h4>
+									<p style="font-size: 0.85rem; color: #666; margin: 0;">Acme Solutions</p>
+								</div>
+							</div>
+						</div>
+						
+					<!-- Testimonial Card 2 (Duplicate): Jane Watson -->
+					<div class="testimonial-card">
+						<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+						</div>
+						<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Fantastic service and top-notch quality! The signs turned out beautifully and truly elevated our business's visibility. I highly recommend Malizia for all your signage requirements.</p>
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Jane Watson" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+							<div>
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Jane Watson</h4>
+								<p style="font-size: 0.85rem; color: #666; margin: 0;">Beta Innovations</p>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Testimonial Card 3 (Duplicate): Robert Winger -->
+					<div class="testimonial-card">
+						<div style="display: flex; gap: 0.2rem; margin-bottom: 1.2rem;">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="#f57c1f"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+						</div>
+						<p style="color: #444; font-size: 0.95rem; line-height: 1.7; margin: 0 0 1.5rem 0;">Excellent craftsmanship and quick turnaround! The banners are stunning and truly made our brand pop. Highly endorse Malizia for all your signage requirements.</p>
+						<div style="display: flex; align-items: center; gap: 0.8rem;">
+							<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Robert Winger" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover;">
+							<div>
+								<h4 style="font-size: 1rem; font-weight: 700; color: #111; margin: 0;">Robert Winger</h4>
+								<p style="font-size: 0.85rem; color: #666; margin: 0;">Tech Innovations</p>
+							</div>
+						</div>
+					</div>
+			</div>
+			
+			<!-- Pagination Dots -->
+			<div style="display: flex; justify-content: center; gap: 0.8rem; margin-top: 3rem;">
+				<div style="width: 12px; height: 12px; border-radius: 50%; background: #f57c1f; cursor: pointer;"></div>
+				<div style="width: 12px; height: 12px; border-radius: 50%; background: #999; cursor: pointer;"></div>
+				<div style="width: 12px; height: 12px; border-radius: 50%; background: #999; cursor: pointer;"></div>
+				<div style="width: 12px; height: 12px; border-radius: 50%; background: #999; cursor: pointer;"></div>
+			</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Malizia Sign - Contact Us</title>
+	<link rel="stylesheet" href="/static/style.css">
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Segoe UI', Arial, sans-serif;
+			background: #f8f8f8;
+		}
+
+		/* Hero Section */
+		.hero-section {
+			background: url('/static/images/servicebg.png') center center/cover no-repeat;
+			background-attachment: fixed;
+			padding: 8rem 2rem 6rem 2rem;
+			position: relative;
+			text-align: center;
+		}
+
+		.hero-section::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.5);
+			z-index: 1;
+		}
+
+		.hero-section h1 {
+			font-size: 4rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0 0 1.5rem 0;
+			position: relative;
+			z-index: 2;
+		}
+
+		.breadcrumb {
+			display: inline-flex;
+			align-items: center;
+			gap: 1rem;
+			border: 2px solid #f57c1f;
+			border-radius: 25px;
+			padding: 0.6rem 1.5rem;
+			position: relative;
+			z-index: 2;
+		}
+
+		.breadcrumb a {
+			color: #f57c1f;
+			text-decoration: none;
+			font-weight: 500;
+		}
+
+		.breadcrumb span {
+			color: #f57c1f;
+			font-weight: 300;
+		}
+
+		.breadcrumb .current {
+			color: #f57c1f;
+			font-weight: 500;
+		}
+
+		/* Contact Cards Section */
+		.contact-section {
+			background: #fff;
+			padding: 4rem 2rem;
+		}
+
+		.contact-container {
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+
+		.contact-cards {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 2rem;
+		}
+
+		.contact-card {
+			background: #fff;
+			border-radius: 24px;
+			padding: 2.5rem;
+			border: none;
+			box-shadow: 0 0 25px rgba(245, 124, 31, 0.25);
+			text-align: left;
+			position: relative;
+			transition: box-shadow 0.3s ease;
+		}
+
+		.contact-card:hover {
+			box-shadow: 0 0 35px rgba(245, 124, 31, 0.4);
+		}
+
+		.contact-card-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 1.5rem;
+		}
+
+		.contact-card-title {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.contact-card h3 {
+			font-size: 1.1rem;
+			font-weight: 700;
+			color: #111;
+			margin: 0;
+		}
+
+		.contact-card-icon {
+			width: 55px;
+			height: 55px;
+			background: #f57c1f;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+		}
+
+		.contact-card-icon img {
+			width: 30px;
+			height: 30px;
+			object-fit: contain;
+		}
+
+		.contact-card-divider {
+			width: 100%;
+			height: 2px;
+			background: #ddd;
+			margin: 1.5rem 0;
+		}
+
+		.contact-card p {
+			color: #333;
+			font-size: 0.9rem;
+			margin: 1rem 0;
+			line-height: 1.6;
+			font-weight: 500;
+		}
+
+		.contact-card-image {
+			width: 100%;
+			height: 180px;
+			border-radius: 16px;
+			overflow: hidden;
+			margin-top: 1.5rem;
+		}
+
+		.contact-card-image img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		/* Floating buttons */
+		.floating-buttons {
+			position: absolute;
+			right: 30px;
+			top: 50%;
+			transform: translateY(-50%);
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+			z-index: 10;
+		}
+
+		.floating-btn {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			text-decoration: none;
+		}
+
+		.floating-btn img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		/* Responsive design */
+		@media (max-width: 1024px) {
+			.contact-cards {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.floating-buttons {
+				right: 20px;
+				gap: 12px;
+			}
+
+			.floating-btn {
+				width: 45px;
+				height: 45px;
+			}
+
+			.hero-section {
+				padding: 6rem 1.5rem 4.5rem 1.5rem;
+			}
+		}
+
+		@media (max-width: 768px) {
+			.hero-section {
+				padding: 4.5rem 1.5rem 3.5rem 1.5rem;
+			}
+
+			.hero-section h1 {
+				font-size: 2.5rem;
+				margin-bottom: 1rem;
+			}
+
+			.breadcrumb {
+				padding: 0.4rem 1rem;
+				font-size: 0.85rem;
+			}
+
+			.contact-cards {
+				grid-template-columns: 1fr;
+				gap: 1.5rem;
+			}
+
+			.contact-section {
+				padding: 3rem 1.5rem !important;
+			}
+
+			.contact-container {
+				max-width: 100%;
+			}
+
+			.contact-card {
+				padding: 2rem;
+				border-radius: 20px;
+			}
+
+			.contact-card h3 {
+				font-size: 1rem;
+			}
+
+			.contact-card p {
+				font-size: 0.85rem;
+			}
+
+			.contact-card-icon {
+				width: 48px;
+				height: 48px;
+			}
+
+			.contact-card-icon img {
+				width: 26px;
+				height: 26px;
+			}
+
+			.floating-buttons {
+				right: 15px;
+				gap: 10px;
+			}
+
+			.floating-btn {
+				width: 40px;
+				height: 40px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.hero-section {
+				padding: 3.5rem 1rem 2.5rem 1rem;
+			}
+
+			.hero-section h1 {
+				font-size: 1.8rem;
+				margin-bottom: 0.8rem;
+			}
+
+			.breadcrumb {
+				padding: 0.3rem 0.8rem;
+				font-size: 0.75rem;
+				gap: 0.6rem;
+			}
+
+			.contact-cards {
+				grid-template-columns: 1fr;
+				gap: 1.2rem;
+			}
+
+			.contact-section {
+				padding: 2rem 1rem !important;
+			}
+
+			.contact-card {
+				padding: 1.5rem;
+				border-radius: 16px;
+			}
+
+			.contact-card h3 {
+				font-size: 0.9rem;
+			}
+
+			.contact-card p {
+				font-size: 0.8rem;
+			}
+
+			.contact-card-icon {
+				width: 42px;
+				height: 42px;
+			}
+
+			.contact-card-icon img {
+				width: 22px;
+				height: 22px;
+			}
+
+			.contact-card-image {
+				height: 140px;
+			}
+
+			.floating-buttons {
+				right: 12px;
+				gap: 8px;
+			}
+
+			.floating-btn {
+				width: 35px;
+				height: 35px;
+			}
+
+			/* Form responsive */
+			.contact-form-section {
+				padding: 2rem 1rem !important;
+			}
+
+			.form-row {
+				flex-direction: column !important;
+			}
+
+			.form-group {
+				width: 100% !important;
+				margin-right: 0 !important;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="tel"],
+			textarea {
+				font-size: 16px !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- Include Navbar -->
+	{% include 'Navbar.html' %}
+
+	<!-- Hero Section -->
+	<section class="hero-section">
+		<h1>Contact Us</h1>
+		<div class="breadcrumb">
+			<a href="/">Home</a>
+			<span>/</span>
+			<span class="current">Contact Us</span>
+		</div>
+
+		<!-- Floating buttons - positioned in hero section -->
+		<div class="floating-buttons">
+			<!-- WhatsApp floating button -->
+			<a href="https://wa.me/971559955339" target="_blank" class="floating-btn">
+				<img src="/static/images/whatsapp.png" alt="WhatsApp">
+			</a>
+			<!-- Chat floating button -->
+			<a href="#" class="floating-btn">
+				<img src="/static/images/chat.png" alt="Chat">
+			</a>
+		</div>
+	</section>
+
+	<!-- Contact Cards Section -->
+	<section class="contact-section" style="padding: 5rem 2rem;">
+		<div class="contact-container">
+			<div class="contact-cards">
+				<!-- Office Location Card -->
+				<div class="contact-card">
+					<div class="contact-card-header">
+						<h3>Office Location</h3>
+						<div class="contact-card-icon">
+							<svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M17.5 3.5C11.7375 3.5 7 8.2375 7 14C7 21.875 17.5 31.5 17.5 31.5S28 21.875 28 14C28 8.2375 23.2625 3.5 17.5 3.5ZM17.5 18.375C15.3375 18.375 13.5625 16.6 13.5625 14.4375C13.5625 12.275 15.3375 10.5 17.5 10.5C19.6625 10.5 21.4375 12.275 21.4375 14.4375C21.4375 16.6 19.6625 18.375 17.5 18.375Z" fill="white"/>
+							</svg>
+						</div>
+					</div>
+					<div class="contact-card-divider"></div>
+					<p>123 Business Bay, Dubai, UAE</p>
+					<div class="contact-card-image">
+						<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="Office Location">
+					</div>
+				</div>
+
+				<!-- Phone Number Card -->
+				<div class="contact-card">
+					<div class="contact-card-header">
+						<h3>Phone Number</h3>
+						<div class="contact-card-icon">
+							<svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M28 5H7C5.9 5 5 5.9 5 7V28C5 29.1 5.9 30 7 30H28C29.1 30 30 29.1 30 28V7C30 5.9 29.1 5 28 5ZM17.5 28C16.1 28 15 26.9 15 25.5C15 24.1 16.1 23 17.5 23C18.9 23 20 24.1 20 25.5C20 26.9 18.9 28 17.5 28ZM28 23H7V7H28V23Z" fill="white"/>
+							</svg>
+						</div>
+					</div>
+					<div class="contact-card-divider"></div>
+					<p>+971 4 123 4567</p>
+					<div class="contact-card-image">
+						<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="Phone">
+					</div>
+				</div>
+
+				<!-- Email Us Card -->
+				<div class="contact-card">
+					<div class="contact-card-header">
+						<h3>Email US</h3>
+						<div class="contact-card-icon">
+							<svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M28 7H7C5.9 7 5 7.9 5 9V26C5 27.1 5.9 28 7 28H28C29.1 28 30 27.1 30 26V9C30 7.9 29.1 7 28 7ZM28 10L17.5 17.5L7 10V9H28V10ZM28 26H7V12L17.5 19.5L28 12V26Z" fill="white"/>
+							</svg>
+						</div>
+					</div>
+					<div class="contact-card-divider"></div>
+					<p>info@maliziasign.com</p>
+					<div class="contact-card-image">
+						<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop" alt="Email">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Map Section -->
+	<section style="padding: 5rem 2rem 3rem 2rem; background: #f8f8f8;">
+		<div style="width: 100%; height: 600px; border-radius: 0; overflow: hidden; max-width: 1200px; margin: 0 auto;">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.5!2d55.294!3d25.286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b6b6b6b6b6f%3A0x0!2sDeira%2C%20Dubai%2C%20UAE!5e0!3m2!1sen!2sae!4v1700000000000" width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</section>
+
+	<!-- Include Footer -->
+	{% include 'footer.html' %}
+
+</body>
+</html>
