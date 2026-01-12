@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: django-llp
+    env: python
+    buildCommand: ./build.sh
+    startCommand: gunicorn project_malizia.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: project_malizia.settings
+      - key: PYTHON_VERSION
+        value: 3.11
